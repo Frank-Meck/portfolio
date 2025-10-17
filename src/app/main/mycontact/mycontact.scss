@@ -118,7 +118,8 @@
         }
 
         .status_icon {
-          @include v.status-icon-style(30%);
+
+                  @include v.status-icon-style(30%);
           position: absolute;
           right: 12px;
           top: 35%;

@@ -3,7 +3,7 @@
   <ng-container *ngFor="let project of projects; let i = index">
     <ng-container *ngIf="i === 2">
       <div class="special_image_left_wrapper">
-        <img src="../../../assets/icons/Purple_shadow_L2.png" alt="Purple Shadow">
+        <img src="assets/icons/Purple_shadow_L2.png" alt="Purple Shadow">
       </div>
     </ng-container>
   </ng-container>
@@ -34,14 +34,14 @@
       <div class="portfolio_teamfeedback">
 
         <div class="green_shadow_wrapper">
-          <img src="../../../assets/icons/Green_shadow_G1.png" alt="Green Shadow" />
+          <img src="assets/icons/Green_shadow_G1.png" alt="Green Shadow" />
         </div>
 
         <app-team-feedback [member]="currentMember" [lang]="langService.currentLang"></app-team-feedback>
 
         <div class="selected_box">
           <button class="btn_nav" (click)="prevMember()">
-            <img src="../../../assets/icons/arrow_back.png" alt="Previous" />
+            <img src="assets/icons/arrow_back.png" alt="Previous" />
           </button>
 
           <div class="nav_dots">
@@ -51,7 +51,7 @@
           </div>
 
           <button class="btn_nav" (click)="nextMember()">
-            <img src="../../../assets/icons/arrow_forward.png" alt="Next" />
+            <img src="assets/icons/arrow_forward.png" alt="Next" />
           </button>
         </div>
 

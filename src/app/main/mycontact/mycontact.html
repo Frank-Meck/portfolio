@@ -1,7 +1,7 @@
 <div class="mycontact_section">
 
   <div class="purple_shadow_left_wrapper">
-    <img src="../../../assets/icons/Purple_shadow_L1.png" alt="Purple Shadow" />
+    <img src="assets/icons/Purple_shadow_L1.png" alt="Purple Shadow" />
   </div>
 
   <div id="mycontact_topic" class="headline_contact">
@@ -36,9 +36,9 @@
         <div class="input_wrapper">
           <input [(ngModel)]="contact.name" name="name" #name="ngModel" required
             [placeholder]="langService.t('mycontact.placeholder_name')" />
-          <img *ngIf="submitClicked && name.invalid" src="../../../assets/icons/Vector (1).png" alt="Fehler"
+          <img *ngIf="submitClicked && name.invalid" src="assets/icons/Vector (1).png" alt="Fehler"
             class="status_icon" />
-          <img *ngIf="submitClicked && name.valid" src="../../../assets/icons/Vector (2).png" alt="Richtig"
+          <img *ngIf="submitClicked && name.valid" src="assets/icons/Vector (2).png" alt="Richtig"
             class="status_icon" />
 
           <div class="error_message" [class.visible]="submitClicked && !name.valid">
@@ -51,9 +51,9 @@
           <input class="input_middle" [(ngModel)]="contact.email" name="email" #email="ngModel" required
             pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
             [placeholder]="langService.t('mycontact.placeholder_email')" />
-          <img *ngIf="submitClicked && email.invalid" src="../../../assets/icons/Vector (1).png" alt="Fehler"
+          <img *ngIf="submitClicked && email.invalid" src="assets/icons/Vector (1).png" alt="Fehler"
             class="status_icon" />
-          <img *ngIf="submitClicked && email.valid" src="../../../assets/icons/Vector (2).png" alt="Richtig"
+          <img *ngIf="submitClicked && email.valid" src="assets/icons/Vector (2).png" alt="Richtig"
             class="status_icon" />
 
           <div class="error_message" [class.visible]="submitClicked && !email.valid">
@@ -66,9 +66,9 @@
         <div class="textarea_wrapper">
           <textarea [(ngModel)]="contact.message" name="message" #message="ngModel" required
             [placeholder]="langService.t('mycontact.placeholder_message')"></textarea>
-          <img *ngIf="submitClicked && message.invalid" src="../../../assets/icons/Vector (1).png" alt="Fehler"
+          <img *ngIf="submitClicked && message.invalid" src="assets/icons/Vector (1).png" alt="Fehler"
             class="status_icon_textarea" />
-          <img *ngIf="submitClicked && message.valid" src="../../../assets/icons/Vector (2).png" alt="Richtig"
+          <img *ngIf="submitClicked && message.valid" src="assets/icons/Vector (2).png" alt="Richtig"
             class="status_icon_textarea" />
 
           <div class="error_message" [class.visible]="submitClicked && !message.valid">
