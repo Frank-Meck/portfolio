@@ -1,0 +1,56 @@
+<div class="mymain_page">
+  <div class="mymain_box">
+    <div class="intro_left">
+      <div class="background_img">
+        <img src="../../../assets/icons/photo_shadows.png" alt="Background Shape" />
+      </div>
+      <img class="portrait_img" src="../../../assets/img/myIMG.webp" alt="Portrait von Frank Meckel" />
+    </div>
+
+    <div class="intro_complet">
+
+      <div class="intro_complete_row">
+
+        <div class="intro_text_row" [ngClass]="langService.currentLang === 'DE' ? 'de' : 'en'">
+          {{ langService.t('mymain.Iam') }}
+        </div>
+
+        <div class="intro_name_job_container">
+          <div class="intro_name_job">
+            <div class="intro_name">Frank Meckel</div>
+            <div class="intro_job">{{ langService.t('mymain.job') }}</div>
+          </div>
+        </div>
+      </div>
+
+
+      <button class="intro_button" (click)="scrollToMyContact()">
+        {{ langService.t('mymain.button') }}
+      </button>
+    </div>
+ 
+
+  <div class="overlay_div_1"></div>
+  <div class="overlay_div_2"></div>
+</div>
+
+<div class="intro_contact">
+  <div class="box_line_links">
+    <div class="intro_line"></div>
+
+    <div class="intro_links">
+      <a href="https://github.com/Frank-Meck" target="_blank">
+        <img src="assets/icons/github.png" alt="GitHub">
+      </a>
+      <a class="intro_mail_icon" (click)="scrollToMyContact()">
+        <img src="assets/icons/mail.png" alt="E-Mail">
+      </a>
+      <a href="https://linkedin.com" target="_blank">
+        <img src="assets/icons/linkedin.png" alt="LinkedIn">
+      </a>
+    </div>
+  </div>
+  <div class="intro_mail">frankmeckel@ymail.com</div>
+
+</div>
+</div>

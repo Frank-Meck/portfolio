@@ -1,0 +1,81 @@
+@use '../../../../styles/variables' as v;
+
+
+.skills_container {
+  display: flex;
+  flex-wrap: wrap;
+padding-left:40px; 
+  gap: 10px;
+  justify-content: center;
+
+
+  .skill_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 12px;
+    gap: 10px;
+    flex: 0 1 120px;
+
+
+    img {
+      width: clamp(40px, 8vw, 60px);
+      height: auto;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+
+
+    p {
+      margin: 0;
+      @include v.text-skills;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: clamp(12px, 2.5vw, 16px);
+      line-height: 120%;
+      text-align: center;
+    }
+
+
+    .special_skill {
+      color: v.$basecolor-purple;
+    }
+  }
+
+
+@media (max-width: 768px) {
+  .skill_box {
+    flex: 0 1 calc(33.33% - 6.66px);
+  }
+}
+}
+
+
+@media (max-width: 360px) {
+  .skills_container {
+    gap: 6px;
+
+
+    .skill_box {
+      flex: 0 1 calc(33.33% - 4px);
+
+
+      img {
+        width: clamp(28px, 20vw, 40px);
+      }
+
+
+      p {
+        font-size: clamp(10px, 3vw, 14px);
+      }
+    }
+  }
+}
+@media (max-width: 1025px) {
+  .skills_container {
+    padding-top: 40px;
+    padding-left:0;
+  }
+}

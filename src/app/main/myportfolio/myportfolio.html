@@ -1,0 +1,61 @@
+<div class="main_width" id="myportfolio-section">
+
+  <ng-container *ngFor="let project of projects; let i = index">
+    <ng-container *ngIf="i === 2">
+      <div class="special_image_left_wrapper">
+        <img src="../../../assets/icons/Purple_shadow_L2.png" alt="Purple Shadow">
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <div class="myportfolio_section">
+
+    <div class="myportfolio_box">
+      <div class="column_1"></div>
+      <div class="right_line"></div>
+      <div class="portfolio_box">{{ langService.t('myportfolio.Portfolio') }}</div>
+      <div class="left_line"></div>
+    </div>
+
+    <div class="portfolio_explain_box">
+      {{ langService.t('myportfolio.Portfolio_explanation') }}
+    </div>
+
+    <div class="portfolio_content_wrapper">
+
+      <div class="myportfolio_projects">
+        <ng-container *ngFor="let project of projects; let i = index">
+          <div class="portfolio_wrapper" [class.special]="i === 2">
+            <app-portfolios [project]="project" [reverseLayout]="i % 2 === 1"></app-portfolios>
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="portfolio_teamfeedback">
+
+        <div class="green_shadow_wrapper">
+          <img src="../../../assets/icons/Green_shadow_G1.png" alt="Green Shadow" />
+        </div>
+
+        <app-team-feedback [member]="currentMember" [lang]="langService.currentLang"></app-team-feedback>
+
+        <div class="selected_box">
+          <button class="btn_nav" (click)="prevMember()">
+            <img src="../../../assets/icons/arrow_back.png" alt="Previous" />
+          </button>
+
+          <div class="nav_dots">
+            <span *ngFor="let member of teamFeedbacks; let i = index"
+              [ngStyle]="{'background': i === currentIndex ? '#70E61C' : '#9747FF'}" class="dot">
+            </span>
+          </div>
+
+          <button class="btn_nav" (click)="nextMember()">
+            <img src="../../../assets/icons/arrow_forward.png" alt="Next" />
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

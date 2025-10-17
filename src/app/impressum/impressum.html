@@ -1,0 +1,59 @@
+<div class="impressum_page">
+  <div class="leagel_notice_box">
+    <div class="column_1"></div>
+    <div class="right_line"></div>
+    <div class="leagel_notice_content"> {{ langService.t('impressum.Title') }}</div>
+    <div class="left_line"></div>
+  </div>
+
+  <div class="impressum_section">
+    <h1 [innerHTML]="langService.t('impressum.ImprintTitle')"></h1>
+
+    <div class="impressum_details">
+      <p class="impressum_data"><strong [innerHTML]="langService.t('impressum.StudentNames')"></strong></p><br>
+      <p class="impressum_data" [innerHTML]="langService.t('impressum.Address')"></p><br><br>
+      <p class="impressum_data" [innerHTML]="langService.t('impressum.PostcodeCity')"></p>
+    </div><br><br>
+
+    <div class="impressum_content">
+      <h2 [innerHTML]="langService.t('impressum.ExploringBoardTitle')"></h2>
+      <p [innerHTML]="langService.t('impressum.ExploringBoard')"></p><br>
+
+
+      <h2 [innerHTML]="langService.t('impressum.AcceptanceOfTermsTitle')"></h2>
+      <p [innerHTML]="langService.t('impressum.AcceptanceOfTerms')"></p><br>
+
+
+      <h2 [innerHTML]="langService.t('impressum.ScopeAndOwnershipTitle')"></h2>
+      <!-- Hier: enthält <span class="highlighted-text"> → deshalb tHtml -->
+      <p [innerHTML]="langService.tHtml('impressum.ScopeAndOwnership')"></p><br>
+
+
+      <h2 [innerHTML]="langService.t('impressum.ProprietaryRightsTitle')"></h2>
+      <!-- Hier: enthält <span class="highlighted-text"> → deshalb tHtml -->
+      <p [innerHTML]="langService.tHtml('impressum.ProprietaryRights')"></p><br>
+
+
+      <h2 [innerHTML]="langService.t('impressum.UseOfProductTitle')"></h2>
+      <p [innerHTML]="langService.t('impressum.UseOfProduct')"></p><br>
+
+
+      <h2 [innerHTML]="langService.t('impressum.DisclaimerTitle')"></h2>
+      <p [innerHTML]="langService.t('impressum.Disclaimer')"></p><br>
+
+
+      <h2 [innerHTML]="langService.t('impressum.IndemnityTitle')"></h2>
+      <p [innerHTML]="langService.t('impressum.Indemnity')"></p>
+
+    </div>
+
+    <div class="impressum_contact"><br>
+      <p [innerHTML]="langService.t('impressum.Contact')"></p><br>
+      <p [innerHTML]="langService.t('impressum.Date')"></p>
+    </div>
+  </div>
+</div>
+
+<div class="center">
+  <a class="link_homepage" routerLink="/">Zurück zur Startseite</a><br><br><br>
+</div>

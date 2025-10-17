@@ -1,0 +1,138 @@
+@use '../../../../styles/variables' as v;
+
+
+.portfolio_item {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+
+  &.reverse {
+    flex-direction: row-reverse;
+  }
+
+
+  .portfolio_image {
+    width: 50%;
+
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+
+  .portfolio_text {
+    width: 50%;
+    padding: 10px;
+    margin-top: 75px;
+
+
+    .txt_project {
+      @include v.text_project;
+      margin-top: 30px;
+    }
+
+
+    .txt_project_skills {
+      @include v.text_project_skills;
+      margin-top: 10px;
+    }
+
+
+    .txt_project_discription {
+      @include v.text_project_discription;
+      margin-top: 20px;
+    }
+
+
+    .btn_box {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      flex-wrap: wrap;
+
+
+      .btn_live_test {
+        @include v.button_live_test;
+        @include v.button_style_purple_hover;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+
+      .btn_github {
+        @include v.button_style_clean;
+        @include v.button_style_purple_hover;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+
+      .btn_disabled {
+        background-color: #FFA500;
+        color: #fff;
+        width: 148px;
+        height: 50px;
+        border: none;
+        padding: 8px 18px;
+        border-radius: 8px;
+        cursor: not-allowed;
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+
+
+        .btn_line1 {
+          font-size: 14px;
+        }
+
+
+        .btn_line2 {
+          font-size: 12px;
+          display: flex;
+          align-items: center;
+          gap: 4px;
+
+
+          .status_text {
+            color: #fff;
+          }
+
+
+          .status_icon {
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+    }
+  }
+
+
+  @media (max-width: 1024px) {
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+
+
+    .portfolio_image,
+    .portfolio_text {
+      width: 100%;
+      margin-top: 0;
+    }
+
+
+    .btn_box {
+      justify-content: center;
+      gap: 8px;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+<div class="portfolio_item" [ngClass]="{'reverse': reverseLayout}">
+  <div class="portfolio_image">
+    <img [src]="imageUrl" [alt]="project.title" />
+  </div>
+
+  <div class="portfolio_text">
+    <h3 class="txt_project">{{ project.title }}</h3>
+    <p class="txt_project_skills">{{ project.skills[langService.currentLang] }}</p>
+    <p class="txt_project_discription">{{ project.description[langService.currentLang] }}</p>
+
+    <div class="btn_box">
+      <ng-container *ngIf="liveUrl; else liveInProgress">
+        <a class="btn_live_test" [href]="liveUrl" target="_blank">Live test</a>
+      </ng-container>
+      <ng-template #liveInProgress>
+        <button class="btn_disabled">
+          <div class="btn_line1">Live test</div>
+          <div class="btn_line2">
+            <span class="status_text">{{ inProgressText.live[langService.currentLang] }}</span>
+            <img src="../../../../assets/icons/in_progress.png" alt="In Arbeit" class="status_icon" />
+          </div>
+        </button>
+      </ng-template>
+
+      <ng-container *ngIf="githubUrl; else githubInProgress">
+        <a class="btn_github" [href]="githubUrl" target="_blank">GitHub</a>
+      </ng-container>
+      <ng-template #githubInProgress>
+        <button class="btn_disabled">
+          <div class="btn_line1">GitHub</div>
+          <div class="btn_line2">
+            <span class="status_text">{{ inProgressText.github[langService.currentLang] }}</span>
+            <img src="../../../../assets/icons/in_progress.png" alt="In Arbeit" class="status_icon" />
+          </div>
+        </button>
+      </ng-template>
+    </div>
+  </div>
+</div>

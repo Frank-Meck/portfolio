@@ -1,0 +1,7 @@
+<div class="skills_container">
+  <div class="skill_box" *ngFor="let skill of skills">
+    <img [src]="skill.img" [alt]="skill.name">
+    <p [innerHTML]="formatName(skill.name)"
+       [ngClass]="{'special_skill': skill.name === 'Continually Learning'}"></p>
+  </div>
+</div>

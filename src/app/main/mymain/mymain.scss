@@ -1,0 +1,310 @@
+@use '../../../styles/variables' as v;
+
+.mymain_page {
+  height: calc(100vh - #{v.$header_height});
+  padding-top: 100px;
+ // border: 2px solid red;
+}
+
+.mymain_box {
+  width: 96%;
+  max-width: v.$max_width;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  .background_img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 120%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  .intro_left {
+    position: relative;
+    z-index: 20;
+
+    .background_img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: scaleX(0.8);
+      z-index: 1;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    img.portrait_img {
+      position: relative;
+      z-index: 2;
+      width: clamp(300px, 45vw, 646px);
+      height: auto;
+      max-height: 78vh;
+      object-fit: contain;
+    }
+  }
+
+  .intro_complet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: clamp(300px, 50vw, 700px);
+    max-width: 100%;
+    z-index: 20;
+
+    .intro_complete_row {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: nowrap;
+      width: 100%;
+      position: relative;
+
+      .intro_text_row {
+        @include v.text_heading_job;
+        font-weight: 400;
+        font-size: clamp(20px, 3vw, 48px);
+        white-space: nowrap;
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+
+        transform: rotate(-90deg);
+        transform-origin: top right;
+
+        position: absolute;
+        top: 10px; 
+        right: 100%;
+        margin-right: 20px; 
+        &.en {
+          left: auto;
+          right: 100%;
+        }
+
+        &.de {
+          left: auto;
+          right: 100%;
+        }
+      }
+
+      .intro_name_job_container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex: 1;
+        min-width: 0;
+        margin-left: 25px;
+
+        .intro_name_job {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+
+          .intro_name {
+            @include v.text_topic_heading;
+            white-space: nowrap;
+          }
+
+          .intro_job {
+            @include v.text_heading_job;
+            font-size: clamp(20px, 3vw, 48px);
+            color: v.$basecolor_purple;
+            padding: 5px 10px;
+            display: inline-block;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+
+    .intro_button {
+      @include v.button_style_green;
+      margin-top: 50px;
+      @include v.button_style_purple_hover;
+      width: 200px;
+      align-self: center;
+    }
+  }
+
+  .overlay_div_1 {
+    position: absolute;
+    top: 0;
+    left: -18px;
+    width: calc(100%);
+    max-width: v.$max_width;
+    height: 95%;
+    background: linear-gradient(-250.69deg, #1A2743 50.75%, #27334B 60.25%, #141D2F 100.18%);
+    z-index: 10;
+  }
+
+  .overlay_div_2 {
+    position: absolute;
+    top: 0;
+    left: -20px;
+    width: calc(100%);
+    max-width: v.$max_width;
+    height: 100%;
+    background-color: v.$basecolor_background_color;
+    border-radius: 0% 0% 100% 0%;
+    z-index: 10;
+  }
+}
+
+.intro_contact {
+  position: relative;
+  width: 94%;
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+  gap: 32px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  .box_line_links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .intro_line {
+      height: 0;
+      width: 100px;
+      border: 2px solid v.$basecolor_purple;
+    }
+
+    .intro_links {
+      display: flex;
+      gap: 20px;
+
+      a img {
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+
+  .intro_mail {
+    @include v.text_project_skills;
+    color: white;
+    line-height: 120%;
+
+    &:hover {
+      text-decoration: underline;
+      color: v.$basecolor_hover_text_green;
+      cursor: pointer;
+    }
+  }
+}
+
+
+@media (max-width: 750px) {
+  .mymain_box {
+    flex-direction: column;
+    align-items: center;
+
+    .intro_complet {
+      width: clamp(300px, 60vw, 646px);
+      margin: 0 auto;
+      align-items: center;
+
+      .intro_complete_row {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: auto;
+        margin-left: -25px;
+
+        .intro_text_row {
+          transform: rotate(-90deg);
+          position: absolute;
+          top: 10px; 
+          right: 100%;
+          margin-right: 20px;
+        }
+
+        .intro_name_job_container {
+          align-items: flex-start;
+
+          .intro_job {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+          }
+        }
+      }
+
+      .intro_button {
+        margin-top: 20px;
+        align-self: center;
+      }
+    }
+  }
+
+  .intro_contact {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    margin-top: 20px;
+
+    .box_line_links {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .intro_mail {
+      order: 1;
+      margin-top: 10px;
+    }
+  }
+}
+
+@media (max-width: 370px) {
+  .mymain_box {
+    .intro_complet {
+      .intro_complete_row {
+        position: relative;
+
+        .intro_text_row {
+          font-size: clamp(20px, 4.5vw, 20px); 
+          position: absolute;
+          top: 4px;             
+          right: 100%;
+          margin-right: 0px;     
+          transform: rotate(-90deg);
+          transform-origin: top right;
+        }
+
+        .intro_name_job_container {
+          margin-left: 25px;    
+          .intro_name {
+            font-size: clamp(16px, 4vw, 22px);
+          }
+          .intro_job {
+            font-size: clamp(14px, 3.5vw, 18px);
+          }
+        }
+      }
+    }
+  }
+}

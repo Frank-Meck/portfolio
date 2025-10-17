@@ -1,0 +1,20 @@
+<div class="feedback_card">
+  <div class="portfolio_feedbacktext">
+    <img src="./../../../../assets/icons/Frame 281.png" alt="Logo" class="logo">
+
+    <h3 class="txt_feedback">
+      {{ member.team_comment[langService.currentLang] }}
+    </h3>
+
+    <div class="teammember_name">
+      <p class="txt_feedback_name">
+        {{ member.team_member }} - {{ member.title[langService.currentLang] }}
+      </p>
+    </div>
+  </div>
+
+  <div class="portfolio_singlefeedback">
+    <img [src]="getMemberPicture(member)" [alt]="member.team_member" />
+    <div class="line_divider"></div>
+  </div>
+</div>

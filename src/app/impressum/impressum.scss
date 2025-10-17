@@ -1,0 +1,119 @@
+@use '../../styles/variables' as v;
+
+
+.impressum_page {
+  margin-top: v.$header_height;
+  margin-bottom: 0;
+  width: 100%;
+  max-width: v.$max_width;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+
+
+  h1 {
+    font-size: clamp(32px, 2vw + 16px, 48px);
+    font-weight: bold;
+    color: v.$basecolor_purple;
+    margin: 0;
+  }
+
+
+  h2 {
+    font-size: clamp(24px, 1.5vw + 12px, 36px);
+    font-weight: 600;
+    color: v.$basecolor_purple;
+    margin: 0;
+  }
+
+
+  p {
+    font-size: clamp(16px, 0.8vw + 8px, 20px);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+
+  .leagel_notice_box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+
+    .column_1 {
+      width: auto;
+      flex-grow: 1;
+    }
+
+
+    .right_line {
+      width: 15%;
+      height: 4px;
+      background-color: v.$basecolor_purple;
+      margin: 0 10px;
+    }
+
+
+    .leagel_notice_content {
+      width: 40%;
+      text-align: center;
+      font-size: clamp(24px, 1.5vw + 12px, 36px);
+      font-weight: 600;
+      color: v.$baseborder_color;
+    }
+
+    .left_line {
+      width: 30%;
+      height: 4px;
+      background-color: v.$basecolor_purple;
+      margin-left: 10px;
+    }
+  }
+
+
+  .impressum_details {
+    width: fit-content;
+    margin: 0 auto;
+    border: 4px solid v.$baseborder_color;
+    border-radius: 10px;
+    padding: 1em 2em;
+    text-align: center;
+
+
+    .impressum_data {
+      font-size: clamp(16px, 0.8vw + 8px, 20px);
+      font-weight: 500;
+    }
+  }
+
+
+  @media (max-width: 1024px) {
+    max-width: calc(100% - 60px);
+  }
+
+
+  @media (max-width: 768px) {
+    max-width: calc(100% - 30px);
+  }
+}
+
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+
+  .link_homepage {
+    color: v.$basecolor_text;
+
+    &:hover {
+      color: v.$baseborder_color;
+    }
+  }
+}

@@ -1,0 +1,303 @@
+// Farben
+$baseborder_color: #70E61C;
+$basecolor_background_color: #141D2F;
+$basecolor_text: #fff;
+$basecolor_purple: #9747ff;
+//Hover-Color
+$basecolor_hover_purple: #9747ff;
+$basecolor_hover_green: #70E61C;
+$basecolor_hover_text_green: #70E61C;
+// Header
+$header_background_color: $basecolor_background_color;
+$header_text: $basecolor_text;
+$header_hover_text: $basecolor_hover_text_green;
+$header_hamburger_menue: #414856;
+$header_height: 100px; // korrigiert, vorher war 35px + Doppeldefinition
+// Footer
+$footer_background: $basecolor_background_color;
+$footer_text: $basecolor_text;
+// Layout
+$max_width: 1440px;
+
+
+// ======================
+// Text Mixins (sortiert)
+// ======================
+@mixin text_topic_heading {
+  font-family: Poppins, sans-serif;
+  font-weight: 700; // Bold
+  font-style: normal;
+  font-size: clamp(32px, 5vw, 90px);
+  line-height: 120%;
+  letter-spacing: 0;
+}
+
+
+@mixin text_heading_job {
+  font-family: Poppins, sans-serif;
+  font-weight: 700; // Bold
+  font-style: normal;
+  font-size: clamp(24px, 5vw, 64px);
+  line-height: 120%;
+  letter-spacing: 0;
+}
+
+
+@mixin text_heading_name {
+  font-family: Poppins, sans-serif;
+  font-weight: 700; // Bold
+  font-style: normal;
+  font-size: clamp(28px, 5vw, 56px);
+  line-height: 120%;
+  letter-spacing: 0;
+}
+
+
+@mixin text_heading {
+  font-family: Poppins, sans-serif;
+  font-weight: 700; // Bold
+  font-style: normal;
+  font-size: clamp(32px, 5vw, 32px);
+  line-height: 120%;
+  letter-spacing: 0;
+}
+
+
+@mixin text_project_skills {
+  font-family: Poppins, sans-serif;
+  font-weight: 400; // Regular
+  font-style: normal;
+  font-size: clamp(16px, 5vw, 23px);
+  color: $baseborder_color;
+}
+
+
+@mixin text_project {
+  @include text_heading;
+  color: $basecolor_purple;
+}
+
+
+@mixin text_content {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400; // Regular
+  font-style: normal;
+  font-size: clamp(16px, 5vw, 20px);
+  line-height: 120%;
+  letter-spacing: 0;
+}
+
+
+@mixin text_skills {
+  font-family: Poppins, sans-serif;
+  font-weight: 700; // Bold
+  font-style: normal;
+  font-size: clamp(16px, 5vw, 16px);
+  line-height: 120%;
+  letter-spacing: 0;
+}
+
+
+@mixin text_project_discription {
+  font-family: Poppins, sans-serif;
+  font-weight: 400; // Regular
+  font-style: normal;
+  font-size: clamp(16px, 5vw, 16px);
+  text-align: left;
+  color: $basecolor_text;
+}
+
+
+@mixin text_input_field {
+  width: 617;
+  height: 50;
+  gap: 10px;
+  angle: 0 deg;
+  opacity: 1;
+  border-radius: 10px;
+  border-width: 1px;
+  padding-top: 15px;
+  padding-right: 25px;
+  padding-bottom: 15px;
+  padding-left: 25px;
+  background: #141D2F;
+  font-family: Poppins, sans-serif;
+  font-weight: 400; // Regular
+  font-style: normal;
+  font-size: clamp(16px, 5vw, 16px);
+  text-align: left;
+  color: $basecolor_text;
+}
+
+// ======================
+// icons Mixins
+// ======================
+
+@mixin status-icon-style($top-position: 30%) {
+  position: absolute;
+  right: 12px;
+  top: $top-position;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+  display: block;
+}
+
+// =============================
+// Input-Feld Mixin
+// =============================
+@mixin input-field-style($height: 45px, $padding: 10px 40px 10px 12px) {
+  width: 100%;
+  height: $height;
+  padding: $padding;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-sizing: border-box;
+  @include text_input_field;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: $baseborder_color;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $baseborder_color;
+  }
+}
+
+// =============================
+// Textarea Mixin
+// =============================
+@mixin textaera-field-style($height: 120px, $padding: 10px 40px 10px 12px){
+  width: 100%;
+  min-height: 120px;
+  resize: vertical;
+  padding: 10px 40px 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-sizing: border-box;
+  @include text_input_field;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: $baseborder_color;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $baseborder_color;
+  }
+}
+
+// ======================
+// Button Mixins
+// ======================
+@mixin button_style_green {
+  width: 152px;
+  height: 58px;
+  border-radius: 10px;
+  padding-top: 15px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  padding-left: 30px;
+  gap: 10px;
+  color: $basecolor_text;
+  font-size: 16px;
+  background-color: $baseborder_color;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+
+@mixin button_live_test {
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  padding-top: 15px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  padding-left: 30px;
+  gap: 10px;
+  color: $basecolor_text;
+  font-size: 16px;
+  background-color: $baseborder_color;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+
+@mixin button_style_purple {
+  width: 100px;
+  height: 20px;
+  border-radius: 10px;
+  padding-top: 15px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  padding-left: 30px;
+  gap: 10px;
+  color: $basecolor_text;
+  background-color: $basecolor_purple;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+
+@mixin button_style_clean {
+  padding: 8px 18px;
+  width: 100px;
+  height: 26px;
+  border-radius: 10px;
+  border: 2px solid $baseborder_color;
+  padding-top: 15px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  padding-left: 30px;
+  font-size: 16px;
+  gap: 10px;
+  color: $basecolor_text;
+  background-color: $basecolor_background_color;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+
+@mixin button_style_send {
+  width: 253;
+  height: 58;
+  gap: 10px;
+  angle: 0 deg;
+  opacity: 1;
+  border-radius: 10px;
+  padding-top: 15px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  padding-left: 30px;
+  background: #B6B6B6;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+
+@mixin button_style_green_hover {
+  &:hover {
+    transform: scale(1.1);
+    background-color: $basecolor_hover_green;
+  }
+}
+
+
+@mixin button_style_purple_hover {
+  &:hover {
+    transform: scale(1.1);
+    background-color: $basecolor_hover_purple;
+  }
+}

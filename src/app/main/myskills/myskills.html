@@ -1,0 +1,48 @@
+<div id="myskills-section" class="myskills_section">
+
+  <div class="row row_1">
+    <div class="abstand_skills"></div>
+    <div [ngClass]="{'title_de': langService.currentLang === 'DE', 'title_en': langService.currentLang === 'EN'}">
+      {{ langService.t('myskills.Myskills') }}
+    </div>
+    <div class="line"></div>
+  </div>
+
+  <div class="skills_container">
+
+    <app-skills class="skills_box desktop_only"></app-skills>
+
+
+    <div class="myskill_box">
+
+      <div class="row row_2">
+        <p class="subtitle">
+          {{ langService.t('myskills.MySkillsRow2') }}
+        </p>
+      </div>
+
+   
+      <app-skills class="skills_box mobile_only"></app-skills>
+
+      <div class="row row_3">
+        <p class="highlight_text">
+          {{ highlightText[langService.currentLang].pre }}
+          <span class="heiglihted_text">{{ highlightText[langService.currentLang].highlight }}</span>
+          {{ highlightText[langService.currentLang].post }}
+        </p>
+      </div>
+
+      <div class="row row_4">
+        <p class="subtitle">
+          {{ langService.t('myskills.MySkillsRow4') }}
+        </p>
+      </div>
+
+      <div class="row row_5">
+        <button class="cta_btn" (click)="scrollToMyContact()">Get in touch</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>

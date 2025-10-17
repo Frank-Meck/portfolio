@@ -1,0 +1,64 @@
+<footer class="footer">
+
+  <div class="footer_left">
+
+    <svg width="40" height="45" viewBox="0 0 220 190" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <style>
+          .shield {
+            fill: none;
+            stroke: #70E61C;
+            stroke-width: 8;
+          }
+
+          .text {
+            fill: #70E61C;
+            font-size: 80px;
+            font-family: serif;
+            font-weight: bold;
+            text-anchor: middle;
+          }
+        </style>
+      </defs>
+      <path class="shield" d="M20,20 L180,20 Q190,120 100,220 Q10,120 20,20 Z" />
+      <text class="text" x="100" y="135">FM</text>
+    </svg>
+
+
+    <div class="footer_name">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 50" width="170" height="50">
+        <text x="0" y="40" font-family="Arial" font-size="46" fill="white">Fran</text>
+        <line x1="102" y1="10" x2="102" y2="41" stroke="white" stroke-width="6" />
+        <line x1="108" y1="32" x2="120" y2="20" stroke="green" stroke-width="8" />
+        <line x1="108" y1="30" x2="120" y2="41" stroke="green" stroke-width="8" />
+      </svg>
+      <div class="footer_links">
+        <a routerLink="/impressum">{{ langService.currentLang === 'EN' ? 'legal Notice' :
+          langService.t('footer.legalNotice') }}</a>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="footer_center_right">
+    <div class="footer_center">
+      <p>© Frank Meckel 2025</p>
+    </div>
+  </div>
+
+
+  <div class="footer_right">
+    <a href="https://github.com/Frank-Meck" target="_blank">
+      <img src="assets/icons/github.png" alt="GitHub">
+
+    </a>
+    <a class="intro_mail_icon" (click)="scrollToMyContact()">
+      <img src="assets/icons/mail.png" alt="E-Mail">
+    </a>
+    <a href="https://linkedin.com" target="_blank">
+      <img src="assets/icons/linkedin.png" alt="LinkedIn">
+    </a>
+  </div>
+
+</footer>
