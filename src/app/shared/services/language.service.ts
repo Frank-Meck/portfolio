@@ -32,7 +32,12 @@ export class LanguageService {
     //footer//  
     footer: {
       legalNotice: { EN: 'Legal Notice', DE: 'Impressum' },
-      privacy: { EN: 'Privacy Policy', DE: 'Datenschutz' }
+      privacy: { EN: 'Privacy Policy', DE: 'Datenschutz' },
+      contactmail_topic: { EN: 'Email Notice', DE: 'E-Mail-Benachrichtigung' },
+      contactmail_text: { EN: 'For email, please use the contact form available on this page.', 
+                          DE: 'Für E-Mails verwenden Sie bitte das Kontaktformular auf dieser Seite.' 
+                        }
+          
     },
 
     //header//  
