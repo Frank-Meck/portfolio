@@ -354,7 +354,13 @@ export class LanguageService {
         EN: `For any questions or notices, please contact us at [frankmeckel@ymail.com].`,
         DE: `Bei Fragen oder Mitteilungen kontaktieren Sie uns bitte unter [frankmeckel@ymail.com].`
       },
-      Date: { EN: `Date: July 26, 2025`, DE: `Datum: 26. Juli 2025` }
+      Date: { EN: `Date: July 26, 2025`, DE: `Datum: 26. Juli 2025` },
+      footer: {
+        EN: `Back to homepage`,
+        DE: `Zurück zur Startseite`
+      },
+  
+      
     }
   };
 
