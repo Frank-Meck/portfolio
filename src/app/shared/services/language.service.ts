@@ -34,10 +34,11 @@ export class LanguageService {
       legalNotice: { EN: 'Legal Notice', DE: 'Impressum' },
       privacy: { EN: 'Privacy Policy', DE: 'Datenschutz' },
       contactmail_topic: { EN: 'Email Notice', DE: 'E-Mail-Benachrichtigung' },
-      contactmail_text: { EN: 'For email, please use the contact form available on this page.', 
-                          DE: 'Für E-Mails verwenden Sie bitte das Kontaktformular auf dieser Seite.' 
-                        }
-          
+      contactmail_text: {
+        EN: 'For email, please use the contact form available on this page.',
+        DE: 'Für E-Mails verwenden Sie bitte das Kontaktformular auf dieser Seite.'
+      }
+
     },
 
     //header//  
@@ -152,36 +153,36 @@ export class LanguageService {
       ],
       // Teamfeedback separat als eigene Variable
       TeamFeedBacks: [
-      {
-  title: { EN: 'Team partners', DE: 'Team Partner' },
-  team_member: 'Michael Beispiel', 
-  team_gender: { male: true }, 
-  team_comment: {
-    EN: 'This is a sample text; the team feedback can only be added after the group work. Michael really kept the team together with his great organization and clear communication. Everything went smoothly.',
-    DE: 'Dies ist ein Beispieltext; das Teamfeedback kann erst nach der Gruppenarbeit eingefügt werden. Michael hat das Team wirklich zusammengehalten mit seiner großartigen Organisation und klaren Kommunikation. Alles lief reibungslos.'
-  },
-  team_picture: 'assets/img/myIMG-2.webp'
-},
-{
-  title: { EN: 'Team partners', DE: 'Team Partner' },
-  team_member: 'Frau Musterfrau', 
-  team_gender: { male: false }, 
-  team_comment: {
-    EN: 'This is a placeholder for the team feedback from Ms. Musterfrau. Feedback can only be added after the group work. She helped the team stay organized and contributed to clear communication among all members.',
-    DE: 'Hier ist ein Platzhalter für das Teamfeedback von Frau Musterfrau. Feedback kann erst nach der Gruppenarbeit eingefügt werden. Sie hat das Team organisiert unterstützt und für klare Kommunikation unter allen Mitgliedern gesorgt.'
-  },
-  team_picture: ''
-},
-{
-  title: { EN: 'Team partners', DE: 'Team Partner' },
-  team_member: 'Mister Mustermann', 
-  team_gender: { male: true }, 
-  team_comment: {
-    EN: 'This is a placeholder for the team feedback from Mr. Mustermann. Feedback can only be added after the group work. He ensured that the team stayed focused and maintained effective collaboration throughout the project.',
-    DE: 'Hier ist ein Platzhalter für das Teamfeedback von Herrn Mustermann. Feedback kann erst nach der Gruppenarbeit eingefügt werden. Er sorgte dafür, dass das Team fokussiert blieb und die Zusammenarbeit während des Projekts effektiv verlief.'
-  },
-  team_picture: ''
-}
+        {
+          title: { EN: 'Team partners', DE: 'Team Partner' },
+          team_member: 'Michael Beispiel',
+          team_gender: { male: true },
+          team_comment: {
+            EN: 'This is a sample text; the team feedback can only be added after the group work. Michael really kept the team together with his great organization and clear communication. Everything went smoothly.',
+            DE: 'Dies ist ein Beispieltext; das Teamfeedback kann erst nach der Gruppenarbeit eingefügt werden. Michael hat das Team wirklich zusammengehalten mit seiner großartigen Organisation und klaren Kommunikation. Alles lief reibungslos.'
+          },
+          team_picture: 'assets/img/myIMG-2.webp'
+        },
+        {
+          title: { EN: 'Team partners', DE: 'Team Partner' },
+          team_member: 'Frau Musterfrau',
+          team_gender: { male: false },
+          team_comment: {
+            EN: 'This is a placeholder for the team feedback from Ms. Musterfrau. Feedback can only be added after the group work. She helped the team stay organized and contributed to clear communication among all members.',
+            DE: 'Hier ist ein Platzhalter für das Teamfeedback von Frau Musterfrau. Feedback kann erst nach der Gruppenarbeit eingefügt werden. Sie hat das Team organisiert unterstützt und für klare Kommunikation unter allen Mitgliedern gesorgt.'
+          },
+          team_picture: ''
+        },
+        {
+          title: { EN: 'Team partners', DE: 'Team Partner' },
+          team_member: 'Mister Mustermann',
+          team_gender: { male: true },
+          team_comment: {
+            EN: 'This is a placeholder for the team feedback from Mr. Mustermann. Feedback can only be added after the group work. He ensured that the team stayed focused and maintained effective collaboration throughout the project.',
+            DE: 'Hier ist ein Platzhalter für das Teamfeedback von Herrn Mustermann. Feedback kann erst nach der Gruppenarbeit eingefügt werden. Er sorgte dafür, dass das Team fokussiert blieb und die Zusammenarbeit während des Projekts effektiv verlief.'
+          },
+          team_picture: ''
+        }
       ],
     },
 
@@ -258,7 +259,16 @@ export class LanguageService {
       button_success: {
         EN: "Your message has been successfully sent.",
         DE: 'Ihre Nachricht wurde erfolgreich verschickt.'
-      }
+      },
+      message_validation_topic: {
+        EN: "Validation Error",
+        DE: 'Validierungsfehler'
+      },
+      message_validation_text: {
+        EN: "Please fill in all required fields correctly.",
+        DE: 'Bitte füllen Sie alle Pflichtfelder korrekt aus.'
+      },
+
     },
 
     // Impressum //
@@ -364,8 +374,8 @@ export class LanguageService {
         EN: `Back to homepage`,
         DE: `Zurück zur Startseite`
       },
-  
-      
+
+
     }
   };
 

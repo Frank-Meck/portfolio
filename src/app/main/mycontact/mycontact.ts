@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { LanguageService } from '../../shared/services/language.service';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -12,8 +12,8 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./mycontact.scss']
 })
 export class Mycontact {
-  constructor(public langService: LanguageService) {}
 
+  /** Contact form model */
   contact = {
     name: '',
     email: '',
@@ -21,47 +21,58 @@ export class Mycontact {
     agb: false
   };
 
+  /** Flag to track if submit was clicked */
   submitClicked = false;
+
+  /** Flag indicating email is being sent */
   sending = false;
 
-  // Success state
+  /** Success modal visibility */
   showSuccessModal = false;
 
-  // Error state
+  /** Error modal visibility */
   showErrorModal = false;
-  errorMessage = ''; // e.g., 'Error sending message.' or detailed server text
+
+  /** Error message for server/network errors */
+  errorMessage = '';
+
+  /** Validation modal visibility */
+  showValidationModal = false;
+
+  /** Validation message to display */
+  validationMessage = '';
 
 
   /**
-   * Handles the submit button click.
-   * Validates the form and sends email request if valid.
+   * Constructor
+   * @param langService Language service for translations
    */
-  submit() {
+  constructor(public langService: LanguageService) { }
+
+
+  /**
+   * Handles form submission
+   * @param {NgForm} form The Angular form instance
+   */
+  submit(form: NgForm) {
     this.submitClicked = true;
     this.showSuccessModal = false;
     this.showErrorModal = false;
+    this.showValidationModal = false;
     this.errorMessage = '';
+    this.validationMessage = '';
 
-    if (this.isFormValid()) {
+    if (form.valid) {
       this.sendEmailRequest();
     } else {
+      this.showValidation(this.langService.t('mycontact.validation_error') || 'Please fill in all required fields correctly.');
       console.warn('❌ Form invalid');
     }
   }
 
 
   /**
-   * Validates the contact form.
-   * @returns {boolean} True if all required fields are filled and checkbox is checked.
-   */
-  private isFormValid(): boolean {
-    const { name, email, message, agb } = this.contact;
-    return !!(name && email && message && agb);
-  }
-
-
-  /**
-   * Sends the contact form data to the server.
+   * Sends the contact form data to the server
    */
   private sendEmailRequest(): void {
     this.sending = true;
@@ -78,8 +89,8 @@ export class Mycontact {
 
 
   /**
-   * Handles the server response after sending email.
-   * @param {any} data Server response data.
+   * Handles server response after sending email
+   * @param {any} data Server response data
    */
   private handleServerResponse(data: any): void {
     this.sending = false;
@@ -96,8 +107,8 @@ export class Mycontact {
 
 
   /**
-   * Handles network errors during email sending.
-   * @param {any} err Network error object.
+   * Handles network errors during email sending
+   * @param {any} err Network error object
    */
   private handleNetworkError(err: any): void {
     this.sending = false;
@@ -107,8 +118,8 @@ export class Mycontact {
 
 
   /**
-   * Sets error state and shows the error modal.
-   * @param {string} msg Error message to display.
+   * Shows error modal
+   * @param {string} msg Error message to display
    */
   private showError(msg: string): void {
     this.errorMessage = msg;
@@ -117,7 +128,17 @@ export class Mycontact {
 
 
   /**
-   * Resets the contact form to initial state.
+   * Shows validation modal
+   * @param {string} msg Validation message to display
+   */
+  private showValidation(msg: string): void {
+    this.validationMessage = msg;
+    this.showValidationModal = true;
+  }
+
+
+  /**
+   * Resets the contact form to initial state
    */
   private resetForm(): void {
     this.contact = { name: '', email: '', message: '', agb: false };
@@ -126,7 +147,7 @@ export class Mycontact {
 
 
   /**
-   * Closes the success modal.
+   * Closes the success modal
    */
   closeSuccessModal() {
     this.showSuccessModal = false;
@@ -134,9 +155,18 @@ export class Mycontact {
 
 
   /**
-   * Closes the error modal.
+   * Closes the error modal
    */
   closeErrorModal() {
     this.showErrorModal = false;
   }
+
+
+  /**
+   * Closes the validation modal
+   */
+  closeValidationModal() {
+    this.showValidationModal = false;
+  }
+
 }

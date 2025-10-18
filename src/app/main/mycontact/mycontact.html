@@ -29,79 +29,80 @@
       </div>
     </div>
 
- 
     <div id="mycontact-section" class="input_contact">
-      <div class="myinput_section">
-   
-        <div class="input_wrapper">
-          <input [(ngModel)]="contact.name" name="name" #name="ngModel" required
-            [placeholder]="langService.t('mycontact.placeholder_name')" />
-          <img *ngIf="submitClicked && name.invalid" src="assets/icons/Vector (1).png" alt="Fehler"
-            class="status_icon" />
-          <img *ngIf="submitClicked && name.valid" src="assets/icons/Vector (2).png" alt="Richtig"
-            class="status_icon" />
 
-          <div class="error_message" [class.visible]="submitClicked && !name.valid">
-            {{ langService.t('mycontact.placeholder_name_error') }}
-          </div>
-        </div>
+      <form #contactForm="ngForm" (ngSubmit)="submit(contactForm)" novalidate>
+        
+        <div class="myinput_section">
 
-  
-        <div class="input_wrapper">
-          <input class="input_middle" [(ngModel)]="contact.email" name="email" #email="ngModel" required
-            pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
-            [placeholder]="langService.t('mycontact.placeholder_email')" />
-          <img *ngIf="submitClicked && email.invalid" src="assets/icons/Vector (1).png" alt="Fehler"
-            class="status_icon" />
-          <img *ngIf="submitClicked && email.valid" src="assets/icons/Vector (2).png" alt="Richtig"
-            class="status_icon" />
+          <div class="input_wrapper">
+            <input [(ngModel)]="contact.name" name="name" #name="ngModel" required
+              [placeholder]="langService.t('mycontact.placeholder_name')" />
+            <img *ngIf="submitClicked && name.invalid" src="assets/icons/Vector (1).png" alt="Fehler"
+              class="status_icon" />
+            <img *ngIf="submitClicked && name.valid" src="assets/icons/Vector (2).png" alt="Richtig"
+              class="status_icon" />
 
-          <div class="error_message" [class.visible]="submitClicked && !email.valid">
-            {{ langService.t('mycontact.placeholder_email_error') }}
-          </div>
-        </div>
-
-
-
-        <div class="textarea_wrapper">
-          <textarea [(ngModel)]="contact.message" name="message" #message="ngModel" required
-            [placeholder]="langService.t('mycontact.placeholder_message')"></textarea>
-          <img *ngIf="submitClicked && message.invalid" src="assets/icons/Vector (1).png" alt="Fehler"
-            class="status_icon_textarea" />
-          <img *ngIf="submitClicked && message.valid" src="assets/icons/Vector (2).png" alt="Richtig"
-            class="status_icon_textarea" />
-
-          <div class="error_message" [class.visible]="submitClicked && !message.valid">
-            {{ langService.t('mycontact.placeholder_message_error') }}
+            <div class="error_message" [class.visible]="submitClicked && name.invalid">
+              {{ langService.t('mycontact.placeholder_name_error') }}
+            </div>
           </div>
 
-     
-          <label>
-            <input type="checkbox" [(ngModel)]="contact.agb" name="agb" #agb="ngModel" required
-              class="checkbox_style" />
-            <span class="checkbox_text">
-              {{ langService.t('mycontact.check_text') }}
-              <span class="contact_policy" [routerLink]="['/datenschutz']">
-                {{ langService.t('mycontact.check_textspan') }}
+          <div class="input_wrapper">
+            <input [(ngModel)]="contact.email" name="email" #email="ngModel" required
+              pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+              [placeholder]="langService.t('mycontact.placeholder_email')" />
+            <img *ngIf="submitClicked && email.invalid" src="assets/icons/Vector (1).png" alt="Fehler"
+              class="status_icon" />
+            <img *ngIf="submitClicked && email.valid" src="assets/icons/Vector (2).png" alt="Richtig"
+              class="status_icon" />
+
+            <div class="error_message" [class.visible]="submitClicked && email.invalid">
+              {{ langService.t('mycontact.placeholder_email_error') }}
+            </div>
+          </div>
+
+          <div class="textarea_wrapper">
+            <textarea [(ngModel)]="contact.message" name="message" #message="ngModel" required
+              [placeholder]="langService.t('mycontact.placeholder_message')"></textarea>
+            <img *ngIf="submitClicked && message.invalid" src="assets/icons/Vector (1).png" alt="Fehler"
+              class="status_icon_textarea" />
+            <img *ngIf="submitClicked && message.valid" src="assets/icons/Vector (2).png" alt="Richtig"
+              class="status_icon_textarea" />
+
+            <div class="error_message" [class.visible]="submitClicked && message.invalid">
+              {{ langService.t('mycontact.placeholder_message_error') }}
+            </div>
+
+            <label>
+              <input type="checkbox" [(ngModel)]="contact.agb" name="agb" #agb="ngModel" required
+                class="checkbox_style" />
+              <span class="checkbox_text">
+                {{ langService.t('mycontact.check_text') }}
+                <span class="contact_policy" [routerLink]="['/datenschutz']">
+                  {{ langService.t('mycontact.check_textspan') }}
+                </span>
+                <span class="check_text_afterspan">
+                  {{ langService.t('mycontact.check_text_afterspan') }}
+                </span>
               </span>
-              <span class="check_text_afterspan">
-                {{ langService.t('mycontact.check_text_afterspan') }}
-              </span>
-            </span>
-          </label>
+            </label>
 
-      
-          <div class="error_message" [class.visible]="submitClicked && !contact.agb">
-            {{ langService.t('mycontact.check_textspan_error') }}
+            <div class="error_message" [class.visible]="submitClicked && !contact.agb">
+              {{ langService.t('mycontact.check_textspan_error') }}
+            </div>
           </div>
+
         </div>
-      </div>
-      <div class="div_send_button">
-        <button (click)="submit()" class="button_send">
-          {{ langService.t('mycontact.button') }}
-        </button>
-      </div>
- 
+
+        <div class="div_send_button">
+          <button type="submit" class="button_send">
+            {{ langService.t('mycontact.button') }}
+          </button>
+        </div>
+
+      </form>
+
       <div class="modal_overlay" *ngIf="showSuccessModal">
         <div class="modal_content">
           <h3>{{ langService.t('mycontact.button_success_title') || 'Erfolgreich gesendet!' }}</h3>
@@ -124,5 +125,15 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="modal_overlay" *ngIf="showValidationModal">
+  <div class="modal_content modal_error">
+    <h3>{{ langService.t('mycontact.message_validation_topic') }}</h3>
+    <p class="error-text">{{ langService.t('mycontact.message_validation_text') }}</p>
+    <button (click)="closeValidationModal()" class="modal_ok_btn modal_error-btn">
+      OK
+    </button>
   </div>
 </div>
