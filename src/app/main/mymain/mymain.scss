@@ -1,9 +1,18 @@
 @use '../../../styles/variables' as v;
 
+/* Container übernimmt die gesamte Höhe minus Header */
+.mymain_container {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - #{v.$header_height});
+  width: 100%;
+}
+
+
 .mymain_page {
-  height: calc(100vh - #{v.$header_height});
+  width: 100%;
   padding-top: 100px;
- // border: 2px solid red;
+  // border: 2px solid red;
 }
 
 .mymain_box {
