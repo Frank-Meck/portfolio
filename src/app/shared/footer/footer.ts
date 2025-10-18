@@ -41,4 +41,20 @@ export class Footer {
       });
     }
   }
+
+ /**
+   * @method
+   * @description Navigates to the main page and scrolls smoothly to the top.
+   */
+  goHome() {
+    if (this.router.url.startsWith('/main') || this.router.url === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      this.router.navigate(['/main']).then(() => {
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 50);
+      });
+    }
+  }
 }

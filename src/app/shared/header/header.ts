@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';  
+import { CommonModule } from '@angular/common';
 import { LanguageService } from '../services/language.service';
-import { Router } from '@angular/router'; 
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
@@ -15,47 +16,52 @@ export class Header {
 
   /**
    * @constructor
-   * @param {LanguageService} langService Service to get and set the current language.
-   * @param {Router} router Angular Router for navigation and smooth scrolling.
+   * @param {LanguageService} langService - Service for managing language translations.
+   * @param {Router} router - Angular Router used for navigation and smooth scrolling.
    */
-  constructor(public langService: LanguageService, private router: Router) { }
+  constructor(public langService: LanguageService, private router: Router) {}
 
 
   /**
-   * @method
-   * @description Toggles the visibility of the menu.
+   * @method toggleMenu
+   * @description Toggles the visibility of the navigation menu.
+   * Opens it if closed, closes it if open.
    */
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
 
 
+  
   /**
-   * @method
-   * @description Closes the menu.
+   * @method closeMenu
+   * @description Closes the navigation menu if it is open.
    */
   closeMenu() {
     this.menuOpen = false;
   }
 
 
+  
   /**
-   * @method
-   * @param {'DE' | 'EN'} lang Language to set.
-   * @description Updates the current language using the LanguageService.
+   * @method setLanguage
+   * @param {'DE' | 'EN'} lang - The language to set.
+   * @description Updates the application's current language using the LanguageService.
    */
   setLanguage(lang: 'DE' | 'EN') {
     this.langService.setLang(lang);
   }
 
 
+  
   /**
    * @private
-   * @method
-   * @param {string} elementId The HTML element ID to scroll to.
-   * @param {number} [offset=100] Offset in pixels to consider fixed header height.
-   * @param {string} [route='/main'] Route to navigate before scrolling.
-   * @description Scrolls smoothly to the given element. Navigates to the route if not already on it.
+   * @method scrollToElementById
+   * @param {string} elementId - The HTML element ID to scroll to.
+   * @param {number} [offset=100] - The vertical offset in pixels to account for a fixed header.
+   * @param {string} [route='/main'] - The route to navigate to before performing the scroll.
+   * @description Smoothly scrolls to a specific element on the page. 
+   * Navigates to the provided route first if the current route differs.
    */
   private scrollToElementById(elementId: string, offset: number = 100, route: string = '/main') {
     const scroll = () => {
@@ -79,38 +85,60 @@ export class Header {
   }
 
 
+  
   /**
-   * @method
-   * @description Scrolls to the "About Me" section.
+   * @method scrollToAboutMe
+   * @description Smoothly scrolls to the "About Me" section.
    */
   scrollToAboutMe() {
     this.scrollToElementById('myaboutme-topic');
   }
 
 
+  
   /**
-   * @method
-   * @description Scrolls to the "My Skills" section.
+   * @method scrollToMySkills
+   * @description Smoothly scrolls to the "My Skills" section.
    */
   scrollToMySkills() {
-    this.scrollToElementById('myskills-section');  
+    this.scrollToElementById('myskills-section');
   }
 
 
+  
   /**
-   * @method
-   * @description Scrolls to the "My Portfolio" section.
+   * @method scrollToMyPortfolio
+   * @description Smoothly scrolls to the "My Portfolio" section.
    */
   scrollToMyPortfolio() {
     this.scrollToElementById('myportfolio-section');
   }
 
 
+  
   /**
-   * @method
-   * @description Scrolls to the "My Contact" section.
+   * @method scrollToMyContact
+   * @description Smoothly scrolls to the "My Contact" section.
    */
   scrollToMyContact() {
     this.scrollToElementById('mycontact-section');
+  }
+
+  
+  /**
+   * @method goHome
+   * @description Navigates to the home (main) page and scrolls to the top.
+   * If already on the main page, only scrolls up smoothly without navigation.
+   */
+  goHome() {
+    if (this.router.url.startsWith('/main')) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      this.router.navigate(['/main']).then(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    this.closeMenu();
   }
 }

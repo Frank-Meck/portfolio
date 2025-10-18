@@ -1,6 +1,5 @@
 @use '../../../styles/variables' as v;
 
-
 .footer {
   width: 100%;
   max-width: 1440px;
@@ -13,20 +12,15 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-
+  margin-bottom: 50px;
 
   a {
     color: white;
+    &:hover {
+      text-decoration: underline;
+      color: v.$baseborder_color;
+    }
   }
-
-
-  .footer_name {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: center;
-  }
-
 
   .footer_left,
   .footer_center,
@@ -38,23 +32,67 @@
 
 
   .footer_left {
+    flex-direction: column;
     justify-content: flex-start;
     margin-left: 20px;
 
-  }
+    .footer_logo_wrapper {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: transform 0.25s ease, opacity 0.25s ease;
 
+      &:hover {
+        transform: scale(1.05);
+        opacity: 0.9;
+      }
+
+      svg {
+        display: block;
+        pointer-events: none;
+      }
+
+      .footer_name {
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .footer_links {
+      display: block;
+      margin-top: 8px;
+      margin-left: 50px; 
+      
+      a {
+        text-decoration: none;
+      }
+    }
+
+    .footer_impressum_handy {
+      display: none;
+      margin-top: 8px;
+
+      a {
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+          color: v.$baseborder_color;
+        }
+      }
+    }
+  }
 
   .footer_center {
     justify-content: center;
     text-align: center;
   }
 
-
   .footer_right {
     justify-content: flex-end;
     gap: 15px;
     margin-right: 20px;
-
 
     img {
       width: 28px;
@@ -68,27 +106,46 @@
     }
   }
 
+  .footer_impressum_handy {
+    display: none;
+  }
 
   @media (max-width: 650px) {
+    margin-bottom: 10px;
     flex-direction: column;
     align-items: center;
     text-align: center;
 
-
     .footer_left {
       padding-left: 50px;
-      text-align: start;
+      text-align: center;
+
+      .footer_logo_wrapper {
+        justify-content: center;
+      }
+
+      .footer_links {
+        display: none; 
+      }
+
+      .footer_impressum_handy {
+        display: block; 
+        text-align: center;
+      }
     }
 
+    .footer_impressum_handy {
+      display: block;
+      margin: 10px 10px;
+    }
 
     .footer_left,
     .footer_center,
     .footer_right {
       flex: unset;
       justify-content: center;
-      margin: 10px 0;
+      margin: 0px 0;
     }
-
 
     .footer_center_right {
       display: flex;

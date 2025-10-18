@@ -1,6 +1,5 @@
 @use '../../../styles/variables' as v;
 
-
 .header_box {
   position: fixed;
   top: 0;
@@ -33,7 +32,12 @@
 
 .header_left {
   margin-left: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 
+  &:hover {
+    transform: scale(1.05); 
+  }
 
   .name {
     font-weight: bold;
@@ -64,16 +68,15 @@
   white-space: nowrap;
   margin-right: 50px;
 
-
   a {
     color: v.$header_text;
     text-decoration: none;
+    cursor: pointer;
 
     &:hover {
       color: v.$header_hover_text;
     }
   }
-
 
   .header_right {
     display: flex;
@@ -84,7 +87,6 @@
     padding-right: 50px;
     padding-left: 100px;
     flex-shrink: 0;
-
 
     button {
       width: 38px;
@@ -123,7 +125,6 @@
     gap: 5%;
     flex-wrap: nowrap;
 
-    
     .header_right {
       padding-left: 50px;
     }
@@ -137,11 +138,9 @@
     padding-right: 25px;
   }
 
-
   .hamburger_only {
     display: block;
   }
-
 
   .header_container {
     .header_nav {
@@ -156,7 +155,6 @@
       width: 100vw;
       height: calc(100vh - #{v.$header_height});
       background-color: v.$header_hamburger_menue;
-      padding: 20px;
       gap: 20px;
       overflow-y: auto;
 
@@ -164,13 +162,11 @@
         display: flex;
       }
 
-
       a {
         font-size: 1.5rem;
         width: 100%;
         padding: 10px 0;
       }
-
 
       .header_right {
         justify-content: center;
