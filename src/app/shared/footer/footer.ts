@@ -2,48 +2,62 @@ import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../services/language.service';
+import { Modal } from '../components/modal/modal'; // ✅ Imported custom modal
 
 @Component({
   selector: 'app-footer',
+  standalone: true,
   templateUrl: './footer.html',
   styleUrls: ['./footer.scss'],
-  standalone: true,
-  imports: [CommonModule, RouterLink] // <-- wichtig für *ngIf
+  imports: [
+    CommonModule,
+    RouterLink,
+    Modal
+  ]
 })
 export class Footer {
 
-  /** Indicates whether the email hint modal is visible */
+  /** Indicates whether the email modal is currently visible. */
   showEmailModal = false;
 
 
   /**
-   * @constructor
-   * @param {LanguageService} langService The language service for translations
-   * @param {Router} router Angular router for navigation and scrolling
+   * Creates an instance of the Footer component.
+   * @param {LanguageService} langService - The language service for translations.
+   * @param {Router} router - Angular router used for navigation.
    */
-  constructor(public langService: LanguageService, private router: Router) { }
+  constructor(
+    public langService: LanguageService,
+    private router: Router
+  ) {}
+
 
 
   /**
-   * Opens the email hint modal
+   * Opens the email hint modal.
+   * Called when the user clicks the mail icon in the footer.
    */
-  openEmailModal() {
+  openEmailModal(): void {
     this.showEmailModal = true;
   }
 
 
+
   /**
-   * Closes the email hint modal
+   * Closes the email hint modal.
+   * Triggered when the user clicks the "OK" button in the modal.
    */
-  closeEmailModal() {
+  closeEmailModal(): void {
     this.showEmailModal = false;
   }
 
 
+
   /**
-   * Smoothly scrolls to the "mycontact-section"
+   * Smoothly scrolls to the "mycontact-section" element.
+   * Navigates to the main page first if not already on it.
    */
-  scrollToMyContact() {
+  scrollToMyContact(): void {
     if (this.router.url.startsWith('/main')) {
       const el = document.getElementById('mycontact-section');
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -58,10 +72,12 @@ export class Footer {
   }
 
 
+
   /**
-   * Navigates to the main page and scrolls to the top
+   * Navigates to the main page and scrolls to the top smoothly.
+   * If already on the main page, it only scrolls without navigation.
    */
-  goHome() {
+  goHome(): void {
     if (this.router.url.startsWith('/main') || this.router.url === '/') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {

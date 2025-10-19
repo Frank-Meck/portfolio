@@ -3,11 +3,12 @@ import { LanguageService } from '../../shared/services/language.service';
 import { RouterModule } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Modal } from '../../shared/components/modal/modal'; // ✅ Modal import
 
 @Component({
   selector: 'app-mycontact',
   standalone: true,
-  imports: [RouterModule, FormsModule, CommonModule],
+  imports: [RouterModule, FormsModule, CommonModule, Modal],
   templateUrl: './mycontact.html',
   styleUrls: ['./mycontact.scss']
 })
@@ -21,23 +22,30 @@ export class Mycontact {
     agb: false
   };
 
+
   /** Flag to track if submit was clicked */
   submitClicked = false;
+
 
   /** Flag indicating email is being sent */
   sending = false;
 
+
   /** Success modal visibility */
   showSuccessModal = false;
+
 
   /** Error modal visibility */
   showErrorModal = false;
 
+
   /** Error message for server/network errors */
   errorMessage = '';
 
+
   /** Validation modal visibility */
   showValidationModal = false;
+
 
   /** Validation message to display */
   validationMessage = '';
@@ -66,7 +74,7 @@ export class Mycontact {
       this.sendEmailRequest();
     } else {
       this.showValidation(this.langService.t('mycontact.validation_error') || 'Please fill in all required fields correctly.');
-      console.warn('❌ Form invalid');
+     // console.warn('❌ Form invalid');
     }
   }
 
@@ -149,7 +157,7 @@ export class Mycontact {
   /**
    * Closes the success modal
    */
-  closeSuccessModal() {
+  closeSuccessModal(): void {
     this.showSuccessModal = false;
   }
 
@@ -157,7 +165,7 @@ export class Mycontact {
   /**
    * Closes the error modal
    */
-  closeErrorModal() {
+  closeErrorModal(): void {
     this.showErrorModal = false;
   }
 
@@ -165,7 +173,7 @@ export class Mycontact {
   /**
    * Closes the validation modal
    */
-  closeValidationModal() {
+  closeValidationModal(): void {
     this.showValidationModal = false;
   }
 

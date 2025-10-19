@@ -1,0 +1,8 @@
+<!-- Generic reusable modal component -->
+<div class="modal_overlay" *ngIf="show">
+  <div class="modal_content" [ngClass]="{'modal_error': isError}">
+    <h3>{{ title }}</h3>
+    <p [ngClass]="{'error-text': isError}">{{ message }}</p>
+    <button class="modal_ok_btn" [ngClass]="{'modal_error_btn': isError}" (click)="closeModal()">OK</button>
+  </div>
+</div>
