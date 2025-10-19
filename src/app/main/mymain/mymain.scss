@@ -8,7 +8,6 @@
   width: 100%;
 }
 
-
 .mymain_page {
   width: 100%;
   padding-top: 100px;
@@ -16,25 +15,27 @@
 }
 
 .mymain_box {
-  width: 96%;
+  width: 100%;
   max-width: v.$max_width;
   margin-left: auto;
   display: flex;
   align-items: center;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 
   .background_img {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100%; // statt 110%
     height: 100%;
+    z-index: 1;
 
     img {
-      width: 120%;
-      height: auto;
-      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;   // zeigt das ganze Bild
+      object-position: center; // zentriert
     }
   }
 
@@ -48,13 +49,13 @@
       left: 0;
       width: 100%;
       height: 100%;
-      transform: scaleX(0.8);
       z-index: 1;
 
       img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;  // ersetzt cover, damit nichts abgeschnitten wird
+        object-position: center;
       }
     }
 
@@ -97,17 +98,21 @@
         transform-origin: top right;
 
         position: absolute;
-        top: 10px; 
+        //top: 20px;
         right: 100%;
-        margin-right: 20px; 
+        margin-right: 20px;
+        //top: 20px;
+
         &.en {
+          top: 20px;
           left: auto;
-          right: 100%;
+          right: 102%;
         }
 
         &.de {
+          top: 18px;
           left: auto;
-          right: 100%;
+          right: 102%;
         }
       }
 
@@ -157,8 +162,14 @@
     left: -18px;
     width: calc(100%);
     max-width: v.$max_width;
-    height: 95%;
-    background: linear-gradient(-250.69deg, #1A2743 50.75%, #27334B 60.25%, #141D2F 100.18%);
+    height: 100%;
+   background: linear-gradient(
+    to bottom,
+    #1A2743 0%,        // oben: dunkelblau
+      #1A2743 0%,       // mittlerer Verlauf
+//    #141D2F 70%,       // fast unten: tiefblau
+    v.$basecolor_background_color 100% // unten: deine Hintergrundfarbe
+  );
     z-index: 10;
   }
 
@@ -226,7 +237,7 @@
   }
 }
 
-
+/* Responsive Anpassungen */
 @media (max-width: 750px) {
   .mymain_box {
     flex-direction: column;
@@ -247,7 +258,7 @@
         .intro_text_row {
           transform: rotate(-90deg);
           position: absolute;
-          top: 10px; 
+          top: 10px;
           right: 100%;
           margin-right: 20px;
         }
@@ -295,20 +306,22 @@
         position: relative;
 
         .intro_text_row {
-          font-size: clamp(20px, 4.5vw, 20px); 
+          font-size: clamp(20px, 4.5vw, 20px);
           position: absolute;
-          top: 4px;             
+          top: 4px;
           right: 100%;
-          margin-right: 0px;     
+          margin-right: 0px;
           transform: rotate(-90deg);
           transform-origin: top right;
         }
 
         .intro_name_job_container {
-          margin-left: 25px;    
+          margin-left: 25px;
+
           .intro_name {
             font-size: clamp(16px, 4vw, 22px);
           }
+
           .intro_job {
             font-size: clamp(14px, 3.5vw, 18px);
           }

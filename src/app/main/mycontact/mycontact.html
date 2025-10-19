@@ -4,13 +4,7 @@
     <img src="assets/icons/Purple_shadow_L1.png" alt="Purple Shadow" />
   </div>
 
-  <div id="mycontact_topic" class="headline_contact">
-    <div class="mycontact_inlie"></div>
-    <div class="mycontact_headline">
-      {{ langService.t('mycontact.header') }}
-    </div>
-    <div></div>
-  </div>
+
 
   <div class="mycontact_content">
 
@@ -117,3 +111,6 @@
       <app-modal [show]="showValidationModal" [title]="langService.t('mycontact.message_validation_topic')"
         [message]="langService.t('mycontact.message_validation_text')" [isError]="true"
         (close)="closeValidationModal()"></app-modal>
+    </div>
+  </div>
+</div>

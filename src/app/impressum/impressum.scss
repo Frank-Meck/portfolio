@@ -12,7 +12,7 @@
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  padding: 20px;
+  //padding: 20px;
 
 
   h1 {
@@ -51,7 +51,7 @@
 
 
     .right_line {
-      width: 15%;
+      width: 50%;
       height: 4px;
       background-color: v.$basecolor_purple;
       margin: 0 10px;
