@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../services/language.service';
-import { Modal } from '../components/modal/modal'; // ✅ Imported custom modal
+import { Modal } from '../components/modal/modal'; 
 
 @Component({
   selector: 'app-footer',
@@ -23,14 +23,13 @@ export class Footer {
 
   /**
    * Creates an instance of the Footer component.
-   * @param {LanguageService} langService - The language service for translations.
-   * @param {Router} router - Angular router used for navigation.
+   * @param langService - The language service for translations.
+   * @param router - Angular router used for navigation.
    */
   constructor(
     public langService: LanguageService,
     private router: Router
   ) {}
-
 
 
   /**
@@ -42,7 +41,6 @@ export class Footer {
   }
 
 
-
   /**
    * Closes the email hint modal.
    * Triggered when the user clicks the "OK" button in the modal.
@@ -50,7 +48,6 @@ export class Footer {
   closeEmailModal(): void {
     this.showEmailModal = false;
   }
-
 
 
   /**
@@ -70,7 +67,6 @@ export class Footer {
       });
     }
   }
-
 
 
   /**

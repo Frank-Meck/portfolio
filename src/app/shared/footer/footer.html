@@ -1,96 +1,96 @@
 <footer class="footer">
 
-  <!-- Left Section -->
-  <div class="footer_left">
+  <div class="footer_top"></div>
 
-    <!-- Logo Wrapper -->
-    <div
-      class="footer_logo_wrapper"
-      (click)="goHome()"
-      (keydown.enter)="goHome()"
-      tabindex="0"
-      role="button"
-      aria-label="Go to start page"
-    >
-      <svg
-        class="footer_logo_svg"
-        width="40"
-        height="45"
-        viewBox="0 0 220 190"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <defs>
-          <style>
-            .shield { fill: none; stroke: #70E61C; stroke-width: 8; }
-            .text { fill: #70E61C; font-size: 80px; font-family: serif; font-weight: bold; text-anchor: middle; }
-          </style>
-        </defs>
-        <path class="shield" d="M20,20 L180,20 Q190,120 100,220 Q10,120 20,20 Z" />
-        <text class="text" x="100" y="135">FM</text>
-      </svg>
+  <div class="footer_main">
 
-      <div class="footer_name">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 50" width="170" height="50">
-          <text x="0" y="40" font-family="Arial" font-size="46" fill="white">Fran</text>
-          <line x1="102" y1="10" x2="102" y2="41" stroke="white" stroke-width="6" />
-          <line x1="108" y1="32" x2="120" y2="20" stroke="green" stroke-width="8" />
-          <line x1="108" y1="30" x2="120" y2="41" stroke="green" stroke-width="8" />
+    <div class="footer_left">
+
+
+      <div class="footer_logo_wrapper" (click)="goHome()" (keydown.enter)="goHome()" tabindex="0" role="button"
+        aria-label="Go to start page">
+        <svg class="footer_logo_svg" width="40" height="45" viewBox="0 0 220 190" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <style>
+              .shield {
+                fill: none;
+                stroke: #70E61C;
+                stroke-width: 8;
+              }
+
+              .text {
+                fill: #70E61C;
+                font-size: 80px;
+                font-family: serif;
+                font-weight: bold;
+                text-anchor: middle;
+              }
+            </style>
+          </defs>
+          <path class="shield" d="M20,20 L180,20 Q190,120 100,220 Q10,120 20,20 Z" />
+          <text class="text" x="100" y="135">FM</text>
         </svg>
+
+        <div class="footer_name">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 50" width="170" height="50">
+            <text x="0" y="40" font-family="Arial" font-size="46" fill="white">Fran</text>
+            <line x1="102" y1="10" x2="102" y2="41" stroke="white" stroke-width="6" />
+            <line x1="108" y1="32" x2="120" y2="20" stroke="green" stroke-width="8" />
+            <line x1="108" y1="30" x2="120" y2="41" stroke="green" stroke-width="8" />
+          </svg>
+        </div>
+      </div>
+
+
+      <div class="footer_links">
+        <a routerLink="/impressum">
+          {{ langService.currentLang === 'EN'
+          ? 'Legal Notice'
+          : langService.t('footer.legalNotice') }}
+        </a>
+      </div>
+
+    </div>
+
+
+    <div class="footer_center_right">
+      <div class="footer_center">
+        <p>© Frank Meckel 2025</p>
       </div>
     </div>
 
-    <!-- Legal Notice Link -->
-    <div class="footer_links">
+
+    <div class="footer_right">
+      <a href="https://github.com/Frank-Meck" target="_blank">
+        <img src="assets/icons/github.png" alt="GitHub" />
+      </a>
+
+      <button class="intro_mail_icon" (click)="openEmailModal()" aria-label="Open Email Modal">
+        <img src="assets/icons/mail.png" alt="E-Mail" />
+      </button>
+
+      <a href="https://linkedin.com" target="_blank">
+        <img src="assets/icons/linkedin.png" alt="LinkedIn" />
+      </a>
+    </div>
+
+
+    <div class="footer_impressum_handy">
       <a routerLink="/impressum">
         {{ langService.currentLang === 'EN'
-          ? 'Legal Notice'
-          : langService.t('footer.legalNotice') }}
+        ? 'Legal Notice'
+        : langService.t('footer.legalNotice') }}
       </a>
     </div>
 
   </div>
 
 
-  <!-- Center Section -->
-  <div class="footer_center_right">
-    <div class="footer_center">
-      <p>© Frank Meckel 2025</p>
-    </div>
-  </div>
+  <div class="footer_bottom"></div>
 
 
-  <!-- Right Section -->
-  <div class="footer_right">
-    <a href="https://github.com/Frank-Meck" target="_blank">
-      <img src="assets/icons/github.png" alt="GitHub" />
-    </a>
 
-  <button class="intro_mail_icon" (click)="openEmailModal()" aria-label="Open Email Modal">
-  <img src="assets/icons/mail.png" alt="E-Mail" />
-</button>
-
-    <a href="https://linkedin.com" target="_blank">
-      <img src="assets/icons/linkedin.png" alt="LinkedIn" />
-    </a>
-  </div>
-
-
-  <!-- Legal Notice (Mobile) -->
-  <div class="footer_impressum_handy">
-    <a routerLink="/impressum">
-      {{ langService.currentLang === 'EN'
-        ? 'Legal Notice'
-        : langService.t('footer.legalNotice') }}
-    </a>
-  </div>
-
-
-  <!-- ✅ Reusable Modal Component -->
-  <app-modal
-    [show]="showEmailModal"
-    [title]="langService.t('footer.contactmail_topic')"
-    [message]="langService.t('footer.contactmail_text')"
-    (close)="closeEmailModal()"
-  ></app-modal>
+  <app-modal [show]="showEmailModal" [title]="langService.t('footer.contactmail_topic')"
+    [message]="langService.t('footer.contactmail_text')" [isError]="false" (close)="closeEmailModal()"></app-modal>
 
 </footer>
