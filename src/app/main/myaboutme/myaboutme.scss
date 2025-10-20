@@ -1,202 +1,169 @@
 @use '../../../styles/variables' as v;
 
 
-.myaboutme_section {
- // border: 4px solid lightblue;
+.myaboutme_main {
+  position: relative;
+  width: 100%;
   max-width: v.$max_width;
   margin: 0 auto;
-  padding-left: 40px;
-  padding-right: 0;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 5%;
-  position: relative;
-  margin-bottom:50px;
 
 
-  .myaboutme_content {
-    flex: 0 1 clamp(280px, 40%, 471px);
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-
-
-    .myaboutme_topic_box {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-
-    .myaboutme_topic {
-      @include v.text_topic_heading;
-      white-space: nowrap;
-      padding-top:50px;
-      padding-bottom: 50px;
-    }
-
-
-    .myaboutme_topic_generally {
-      @include v.text_content;
-
-
-      p {
-        font-size: clamp(16px, 2vw, 16px);
-        line-height: 1.4;
-        margin: 0;
-      }
-    }
-
-
-    .myaboutme_icons {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-
-
-      img {
-        width: clamp(32px, 5vw, 38px);
-        height: clamp(32px, 5vw, 48px);
-        flex-shrink: 0;
-        transition: transform 0.2s ease-in-out;
-      }
-
-
-      p {
-        @include v.text_content;
-        font-size: clamp(16px, 2vw, 16px);
-        margin: 0;
-        line-height: 1.4;
-      }
-
-      &:hover img {
-        transform: scale(1.2);
-        cursor: pointer;
-      }
-    }
-  }
-
-
-  .myaboutme_right {
+  .myaboutme_section {
     display: flex;
     flex-direction: row;
     align-items: center;
-    flex: 1 1 0;
-    justify-content: flex-end;
-
-
-    .myaboutme_line {
-      flex: 1 1 auto;
-      min-width: 0;
-      height: 4px;
-      background-color: v.$baseborder_color;
-      align-self: center;
-    }
-
-
-    .myaboutme_img {
-      flex: 1 1 clamp(250px, 20vw, 350px);
-      min-width: 150px;
-      max-width: 350px;
-      margin-left: clamp(50px, 20vw, 300px);
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-
-
-      img {
-        width: 100%;
-        height: auto;
-        max-height: 78vh;
-        object-fit: contain;
-        border: 4px solid v.$baseborder_color;
-        border-radius: 50%;
-        background-color: v.$basecolor_background_color;
-        z-index: 100;
-      }
-    }
-  }
-
-
-  @media (min-width: 1350px) {
-    .myaboutme_img {
-      flex: 1 1 clamp(150px, 20vw, 350px);
-      min-width: 150px;
-      max-width: 350px;
-      margin-left: clamp(50px, 20vw, 300px);
-    }
-  }
-
-
-  @media (max-width: 1100px) {
-    .myaboutme_img {
-      flex: 0 0 350px;
-    }
-  }
-
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    align-items: center;
-    padding-left: 20px;
-
-
-    .myaboutme_right {
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-
-
-      .myaboutme_img {
-        display: none;
-      }
-
-
-      .myaboutme_line {
-        width: 100%;
-      }
-    }
-  }
-
-
-  @media (max-width: 768px) {
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    padding: 0 20px;
+    justify-content: space-between;
+    gap: 5%;
+    padding: 0 30px; 
     margin-bottom: 50px;
+    position: relative;
 
-
-    .myaboutme_right {
+  
+    .myaboutme_content {
+      flex: 0 1 clamp(280px, 40%, 471px);
+      display: flex;
       flex-direction: column;
+      gap: 32px;
+      text-align: left;
+      align-items: flex-start;
+
+
+      .myaboutme_topic-box {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+
+      .myaboutme_topic {
+        @include v.text_topic_heading;
+        white-space: nowrap;
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+
+
+      .myaboutme_topic_generally {
+        @include v.text_content;
+
+        p {
+          font-size: clamp(16px, 2vw, 16px);
+          line-height: 1.4;
+          margin: 0;
+        }
+      }
+
+
+      .myaboutme_icons {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        img {
+          width: clamp(32px, 5vw, 38px);
+          height: clamp(32px, 5vw, 48px);
+          flex-shrink: 0;
+          transition: transform 0.2s ease-in-out;
+        }
+
+        p {
+          @include v.text_content;
+          font-size: clamp(16px, 2vw, 16px);
+          margin: 0;
+          line-height: 1.4;
+        }
+
+        &:hover img {
+          transform: scale(1.2);
+          cursor: pointer;
+        }
+      }
+    }
+
+   
+    .myaboutme_right {
+      position: relative;
+      display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 10px;
+      flex: 1 1 auto;
 
 
       .myaboutme_img {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+      
+        img {
+          width: 100%;
+          max-width: 350px;
+          height: auto;
+          max-height: 78vh;
+          object-fit: contain;
+          border: 4px solid v.$baseborder_color;
+          border-radius: 50%;
+          background-color: v.$basecolor_background_color;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 100%;
+          transform: translateY(-50%);
+          height: 4px;
+          background-color: v.$baseborder_color;
+          z-index: 1;
+          width: calc(50vw + 50% - 0.5 * 350px - ((100vw - v.$max_width) / 2) - 30px);
+        }
+      }
+
+      
+      .myaboutme_line {
         display: none;
       }
+    }
+
+ 
+    @media (max-width: 1025px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 30px;
+      padding: 0 30px;
 
 
-      .myaboutme_line {
-        width: 100%;
+      .myaboutme_right {
+        display: none;
       }
     }
-  }
+
+    @media (max-width: 768px) {
+      padding: 0 30px;
+      gap: 20px;
+      align-items: flex-start;
 
 
-  @media (max-width: 480px) {
-    width: 100%;
-    gap: 4%;
-    padding: 0 10px;
+      .myaboutme_content {
+        width: 100%;
+        text-align: left;
+        align-items: flex-start;
+      }
+    }
 
+    
+    @media (max-width: 480px) {
+      padding: 0 20px;
+      gap: 20px;
 
-    .myaboutme_content {
-      width: 100%;
+    
+      .myaboutme_content {
+        width: 100%;
+        text-align: left;
+      }
     }
   }
 }

@@ -1,116 +1,117 @@
-<div class="mycontact_section">
+<div id="mycontact_topic" class="contact_main">
 
   <div class="purple_shadow_left_wrapper">
     <img src="assets/icons/Purple_shadow_L1.png" alt="Purple Shadow" />
   </div>
 
-
-
-  <div class="mycontact_content">
-
-    <div class="contact_info">
-      <div class="contact_topictext">
-        {{ langService.t('mycontact.headline') }}
-      </div>
-      <div class="contact_subtext">
-        <p [innerHTML]="langService.t('mycontact.subtext')"></p>
-        <p>
-          {{ langService.t('mycontact.subtext_prespan') }}
-          <span class="contact_subtext_span">
-            {{ langService.t('mycontact.subtext_span') }}
-          </span>
-        </p>
-      </div>
+  <div class="headline_contact">
+    <div class="mycontact_inlie"></div>
+    <div class="mycontact_headline">
+      {{ langService.t('mycontact.header') }}
     </div>
+    <div></div>
+  </div>
 
-    <div id="mycontact-section" class="input_contact">
+  <div class="mycontact_section">
 
-      <form #contactForm="ngForm" (ngSubmit)="submit(contactForm)" novalidate>
+    <div class="mycontact_content">
 
-        <div class="myinput_section">
-
-          <div class="input_wrapper">
-            <input [(ngModel)]="contact.name" name="name" #name="ngModel" required
-              [placeholder]="langService.t('mycontact.placeholder_name')" />
-            <img *ngIf="submitClicked && name.invalid" src="assets/icons/Vector (1).png" alt="Fehler"
-              class="status_icon" />
-            <img *ngIf="submitClicked && name.valid" src="assets/icons/Vector (2).png" alt="Richtig"
-              class="status_icon" />
-
-            <div class="error_message" [class.visible]="submitClicked && name.invalid">
-              {{ langService.t('mycontact.placeholder_name_error') }}
-            </div>
-          </div>
-
-          <div class="input_wrapper">
-            <input [(ngModel)]="contact.email" name="email" #email="ngModel" required
-              pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
-              [placeholder]="langService.t('mycontact.placeholder_email')" />
-            <img *ngIf="submitClicked && email.invalid" src="assets/icons/Vector (1).png" alt="Fehler"
-              class="status_icon" />
-            <img *ngIf="submitClicked && email.valid" src="assets/icons/Vector (2).png" alt="Richtig"
-              class="status_icon" />
-
-            <div class="error_message" [class.visible]="submitClicked && email.invalid">
-              {{ langService.t('mycontact.placeholder_email_error') }}
-            </div>
-          </div>
-
-          <div class="textarea_wrapper">
-            <textarea [(ngModel)]="contact.message" name="message" #message="ngModel" required
-              [placeholder]="langService.t('mycontact.placeholder_message')"></textarea>
-            <img *ngIf="submitClicked && message.invalid" src="assets/icons/Vector (1).png" alt="Fehler"
-              class="status_icon_textarea" />
-            <img *ngIf="submitClicked && message.valid" src="assets/icons/Vector (2).png" alt="Richtig"
-              class="status_icon_textarea" />
-
-            <div class="error_message" [class.visible]="submitClicked && message.invalid">
-              {{ langService.t('mycontact.placeholder_message_error') }}
-            </div>
-
-            <label>
-              <input type="checkbox" [(ngModel)]="contact.agb" name="agb" #agb="ngModel" required
-                class="checkbox_style" />
-              <span class="checkbox_text">
-                {{ langService.t('mycontact.check_text') }}
-                <span class="contact_policy" [routerLink]="['/datenschutz']">
-                  {{ langService.t('mycontact.check_textspan') }}
-                </span>
-                <span class="check_text_afterspan">
-                  {{ langService.t('mycontact.check_text_afterspan') }}
-                </span>
-              </span>
-            </label>
-
-            <div class="error_message" [class.visible]="submitClicked && !contact.agb">
-              {{ langService.t('mycontact.check_textspan_error') }}
-            </div>
-          </div>
-
+      <div class="contact_info">
+        <div class="contact_topictext">
+          {{ langService.t('mycontact.headline') }}
         </div>
-
-        <div class="div_send_button">
-          <button type="submit" class="button_send">
-            {{ langService.t('mycontact.button') }}
-          </button>
+        <div class="contact_subtext">
+          <p [innerHTML]="langService.t('mycontact.subtext')"></p>
+          <p>
+            {{ langService.t('mycontact.subtext_prespan') }}
+            <span class="contact_subtext_span">
+              {{ langService.t('mycontact.subtext_span') }}
+            </span>
+          </p>
         </div>
+      </div>
 
-      </form>
+      <div id="mycontact-section" class="input_contact">
+        <form #contactForm="ngForm" (ngSubmit)="submit(contactForm)" novalidate>
+          <div class="myinput_section">
 
-      <!-- Success Modal -->
-      <app-modal [show]="showSuccessModal"
-        [title]="langService.t('mycontact.button_success_title') || 'Erfolgreich gesendet!'"
-        [message]="langService.t('mycontact.button_success') || 'Ihre Nachricht wurde erfolgreich verschickt.'"
-        [isError]="false" (close)="closeSuccessModal()"></app-modal>
+            <div class="input_wrapper">
+              <input [(ngModel)]="contact.name" name="name" #name="ngModel" required
+                [placeholder]="langService.t('mycontact.placeholder_name')" />
+              <img *ngIf="submitClicked && name.invalid" src="assets/icons/Vector (1).png" alt="Fehler"
+                class="status_icon" />
+              <img *ngIf="submitClicked && name.valid" src="assets/icons/Vector (2).png" alt="Richtig"
+                class="status_icon" />
+              <div class="error_message" [class.visible]="submitClicked && name.invalid">
+                {{ langService.t('mycontact.placeholder_name_error') }}
+              </div>
+            </div>
 
-      <!-- Error Modal -->
-      <app-modal [show]="showErrorModal" [title]="langService.t('mycontact.button_error_title') || 'Fehler'"
-        [message]="errorMessage" [isError]="true" (close)="closeErrorModal()"></app-modal>
+            <div class="input_wrapper">
+              <input [(ngModel)]="contact.email" name="email" #email="ngModel" required
+                pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+                [placeholder]="langService.t('mycontact.placeholder_email')" />
+              <img *ngIf="submitClicked && email.invalid" src="assets/icons/Vector (1).png" alt="Fehler"
+                class="status_icon" />
+              <img *ngIf="submitClicked && email.valid" src="assets/icons/Vector (2).png" alt="Richtig"
+                class="status_icon" />
+              <div class="error_message" [class.visible]="submitClicked && email.invalid">
+                {{ langService.t('mycontact.placeholder_email_error') }}
+              </div>
+            </div>
 
-      <!-- Validation Modal -->
-      <app-modal [show]="showValidationModal" [title]="langService.t('mycontact.message_validation_topic')"
-        [message]="langService.t('mycontact.message_validation_text')" [isError]="true"
-        (close)="closeValidationModal()"></app-modal>
+            <div class="textarea_wrapper">
+              <textarea [(ngModel)]="contact.message" name="message" #message="ngModel" required
+                [placeholder]="langService.t('mycontact.placeholder_message')"></textarea>
+              <img *ngIf="submitClicked && message.invalid" src="assets/icons/Vector (1).png" alt="Fehler"
+                class="status_icon_textarea" />
+              <img *ngIf="submitClicked && message.valid" src="assets/icons/Vector (2).png" alt="Richtig"
+                class="status_icon_textarea" />
+              <div class="error_message" [class.visible]="submitClicked && message.invalid">
+                {{ langService.t('mycontact.placeholder_message_error') }}
+              </div>
+
+              <label>
+                <input type="checkbox" [(ngModel)]="contact.agb" name="agb" #agb="ngModel" required
+                  class="checkbox_style" />
+                <span class="checkbox_text">
+                  {{ langService.t('mycontact.check_text') }}
+                  <span class="contact_policy" [routerLink]="['/datenschutz']">
+                    {{ langService.t('mycontact.check_textspan') }}
+                  </span>
+                  <span class="check_text_afterspan">
+                    {{ langService.t('mycontact.check_text_afterspan') }}
+                  </span>
+                </span>
+              </label>
+
+              <div class="error_message" [class.visible]="submitClicked && !contact.agb">
+                {{ langService.t('mycontact.check_textspan_error') }}
+              </div>
+            </div>
+
+          </div>
+
+          <div class="div_send_button">
+            <button type="submit" class="button_send">
+              {{ langService.t('mycontact.button') }}
+            </button>
+          </div>
+        </form>
+
+        <app-modal [show]="showSuccessModal"
+          [title]="langService.t('mycontact.button_success_title') || 'Erfolgreich gesendet!'"
+          [message]="langService.t('mycontact.button_success') || 'Ihre Nachricht wurde erfolgreich verschickt.'"
+          [isError]="false" (close)="closeSuccessModal()"></app-modal>
+
+        <app-modal [show]="showErrorModal" [title]="langService.t('mycontact.button_error_title') || 'Fehler'"
+          [message]="errorMessage" [isError]="true" (close)="closeErrorModal()"></app-modal>
+
+        <app-modal [show]="showValidationModal" [title]="langService.t('mycontact.message_validation_topic')"
+          [message]="langService.t('mycontact.message_validation_text')" [isError]="true"
+          (close)="closeValidationModal()"></app-modal>
+
+      </div>
     </div>
   </div>
 </div>

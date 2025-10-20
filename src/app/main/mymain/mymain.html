@@ -1,4 +1,7 @@
 <div class="mymain_container">
+
+  <div class="overlay_div_1"></div>
+  <div class="overlay_div_2"></div>
   <div class="mymain_page">
     <div class="mymain_box">
       <div class="intro_left">
@@ -22,32 +25,31 @@
           </div>
         </div>
 
-        <button class="intro_button" (click)="scrollToMyContact()">
+        <button class="intro_button" (click)="scrollToSection('mycontact_topic',-100)">
           {{ langService.t('mymain.button') }}
         </button>
       </div>
 
-      <div class="overlay_div_1"></div>
-      <div class="overlay_div_2"></div>
+
     </div>
+  </div>
 
-    <div class="intro_contact">
-      <div class="box_line_links">
-        <div class="intro_line"></div>
+  <div class="intro_contact">
+    <div class="box_line_links">
+      <div class="intro_line"></div>
 
-        <div class="intro_links">
-          <a href="https://github.com/Frank-Meck" target="_blank">
-            <img src="assets/icons/github.png" alt="GitHub">
-          </a>
-          <a class="intro_mail_icon" (click)="scrollToMyContact()">
-            <img src="assets/icons/mail.png" alt="E-Mail">
-          </a>
-          <a href="https://linkedin.com" target="_blank">
-            <img src="assets/icons/linkedin.png" alt="LinkedIn">
-          </a>
-        </div>
+      <div class="intro_links">
+        <a href="https://github.com/Frank-Meck" target="_blank">
+          <img src="assets/icons/github.png" alt="GitHub">
+        </a>
+        <a class="intro_mail_icon" (click)="scrollToSection('mycontact_topic',-100)">
+          <img src="assets/icons/mail.png" alt="E-Mail">
+        </a>
+        <a href="https://linkedin.com" target="_blank">
+          <img src="assets/icons/linkedin.png" alt="LinkedIn">
+        </a>
       </div>
-      <div class="intro_mail">frankmeckel@ymail.com</div>
     </div>
+    <div class="intro_mail">kontakt@frank-meckel.de</div>
   </div>
 </div>

@@ -1,64 +1,52 @@
-<header class="header_box">
-  <div class="header_container">
-   <div class="header_left" (click)="goHome()" style="cursor: pointer;">
-      <svg width="40" height="60" viewBox="0 0 220 190" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <style>
-            .shield {
-              fill: none;
-              stroke: #70E61C;
-              stroke-width: 8;
-            }
+<header>
+  <div class="header_box">
+    <div class="header_container">
+      
+        <div class="header_left" (click)="goHome()" style="cursor: pointer;">
+        <svg width="40" height="60" viewBox="0 0 220 190" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <style>
+              .shield { fill: none; stroke: #70E61C; stroke-width: 8; }
+              .text { fill: #70E61C; font-size: 80px; font-family: serif; font-weight: bold; text-anchor: middle; }
+            </style>
+          </defs>
+          <path class="shield" d="M20,20 L180,20 Q190,120 100,220 Q10,120 20,20 Z" />
+          <text class="text" x="100" y="135">FM</text>
+        </svg>
 
-            .text {
-              fill: #70E61C;
-              font-size: 80px;
-              font-family: serif;
-              font-weight: bold;
-              text-anchor: middle;
-            }
-          </style>
-        </defs>
-        <path class="shield" d="M20,20 L180,20 Q190,120 100,220 Q10,120 20,20 Z" />
-        <text class="text" x="100" y="135">FM</text>
-      </svg>
-
-   
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 50" width="170" height="50">
-        <text x="0" y="40" font-family="Arial" font-size="46" fill="white">Fran</text>
-         <line x1="102" y1="10" x2="102" y2="41" stroke="white" stroke-width="6" />
-         <line x1="108" y1="32" x2="120" y2="20" stroke="green" stroke-width="8" />
-         <line x1="108" y1="30" x2="120" y2="41" stroke="green" stroke-width="8" />
-      </svg>
-    </div>
-
- 
-    <div>
-      <button class="menu_toggle" (click)="toggleMenu()">
-        ☰
-      </button>
-
-  
-      <div>
-        <nav class="header_nav" [class.open]="menuOpen">
-          <a (click)="scrollToAboutMe()">
-            {{ langService.t('header.about') }}
-          </a>
-          <a routerLink="/myskills" (click)="scrollToMySkills()">
-            {{ langService.t('header.skills') }}
-          </a>
-          <a routerLink="/myportfolio" (click)="scrollToMyPortfolio()">
-            {{ langService.t('header.portfolio') }}
-          </a>
-          <a routerLink="/mycontact" class="hamburger_only" (click)="scrollToMyContact()">
-            {{ langService.t('header.contact') }}
-          </a>
-          <div class="header_right">
-            <button [ngClass]="{ active: langService.currentLang === 'DE' }" (click)="setLanguage('DE')">DE</button>
-            <button [ngClass]="{ active: langService.currentLang === 'EN' }" (click)="setLanguage('EN')">EN</button>
-          </div>
-        </nav>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 50" width="170" height="50">
+          <text x="0" y="40" font-family="Arial" font-size="46" fill="white">Fran</text>
+          <line x1="102" y1="10" x2="102" y2="41" stroke="white" stroke-width="6" />
+          <line x1="108" y1="32" x2="120" y2="20" stroke="green" stroke-width="8" />
+          <line x1="108" y1="30" x2="120" y2="41" stroke="green" stroke-width="8" />
+        </svg>
       </div>
+
+      <button class="menu_toggle" (click)="toggleMenu()">☰</button>
+
+      <nav class="header_nav" [class.open]="menuOpen">
+        <a (click)="scrollToSection('myaboutme-topic', 100)">
+          {{ langService.t('header.about') }}
+        </a>
+
+        <a (click)="scrollToSection('myskills-section', 100)">
+          {{ langService.t('header.skills') }}
+        </a>
+
+        <a (click)="scrollToSection('myportfolio-section', 50)">
+          {{ langService.t('header.portfolio') }}
+        </a>
+
+        <a class="hamburger_only" (click)="scrollToSection('mycontact_topic',-160)">
+          {{ langService.t('header.contact') }}
+        </a>
+
+        <div class="header_right">
+          <button [ngClass]="{ active: langService.currentLang === 'DE' }" (click)="setLanguage('DE')">DE</button>
+          <button [ngClass]="{ active: langService.currentLang === 'EN' }" (click)="setLanguage('EN')">EN</button>
+        </div>
+      </nav>
+
     </div>
   </div>
 </header>

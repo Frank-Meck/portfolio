@@ -280,7 +280,7 @@ export class LanguageService {
       PostcodeCity: { EN: '58540 Meinerzhagen', DE: '58540 Meinerzhagen' },
 
       ExploringBoardTitle: { EN: `Exploring the Board`, DE: `Erkundung des Board` },
-      ExploringBoard: { EN: `Email: [frankmeckel@ymail.com]`, DE: `Email: [frankmeckel@ymail.com]` },
+      ExploringBoard: { EN: `Email: [kontakt@frank-meckel.de]`, DE: `Email: [kontakt@frank-meckel.de]` },
 
       AcceptanceOfTermsTitle: { EN: 'Acceptance of terms', DE: 'Annahme der Bedingungen' },
       AcceptanceOfTerms: {

@@ -30,28 +30,27 @@ export class Mymain {
 
 
 
-  /**
-   * @method
-   * @description Scrolls smoothly to the "My Contact" section.
-   * If the current route starts with '/main', scrolls directly.
-   * Otherwise, navigates to '/main/mycontact' first, then scrolls.
+ /**
+   * @method scrollToSection
+   * @param {string} elementId - The ID of the target section.
+   * @param {number} offset - The offset to account for sticky header.
+   * @description Smoothly scrolls to a section while considering the sticky header height.
    */
-  scrollToMyContact() {
-    if (this.router.url.startsWith('/main')) {
-      const el = document.getElementById('mycontact-section');
-      if (el) { 
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' }); 
+  scrollToSection(elementId: string, offset: number = 100) {
+    const scroll = () => {
+      const el = document.getElementById(elementId);
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
       }
-    } else {
-      this.router.navigate(['/main/mycontact']).then(() => {
-        setTimeout(() => {
-          const el = document.getElementById('mycontact-section');
-          if (el) { 
-            el.scrollIntoView({ behavior: 'smooth', block: 'start' }); 
-          }
-        }, 50);
-      });
-    }
-  }
+    };
 
+    if (this.router.url.startsWith('/main')) {
+      scroll();
+    } else {
+      this.router.navigate(['/main']).then(() => setTimeout(() => scroll(), 50));
+    }
+
+   
+  }
 }

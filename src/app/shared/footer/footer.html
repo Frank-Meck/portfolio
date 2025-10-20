@@ -6,10 +6,9 @@
 
     <div class="footer_left">
 
-
       <div class="footer_logo_wrapper" (click)="goHome()" (keydown.enter)="goHome()" tabindex="0" role="button"
         aria-label="Go to start page">
-        <svg class="footer_logo_svg" width="40" height="45" viewBox="0 0 220 190" xmlns="http://www.w3.org/2000/svg">
+        <svg class="footer_logo_svg" width="40" height="45" viewBox="0 30 220 190" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <style>
               .shield {
@@ -74,7 +73,6 @@
       </a>
     </div>
 
-
     <div class="footer_impressum_handy">
       <a routerLink="/impressum">
         {{ langService.currentLang === 'EN'
@@ -84,11 +82,7 @@
     </div>
 
   </div>
-
-
   <div class="footer_bottom"></div>
-
-
 
   <app-modal [show]="showEmailModal" [title]="langService.t('footer.contactmail_topic')"
     [message]="langService.t('footer.contactmail_text')" [isError]="false" (close)="closeEmailModal()"></app-modal>
