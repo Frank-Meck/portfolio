@@ -1,22 +1,62 @@
 <div class="main_box">
-  <app-mymain></app-mymain>
 
+  <!-- Main Section -->
+  <div id="mymain">
+    <app-mymain></app-mymain>
+    <img 
+      *ngIf="currentSectionIndex === 0"
+      src="assets/icons/arrowdown.png" 
+      alt="Arrow down" 
+      class="scroll-button scroll-down"
+      (click)="scrollToSection('myaboutme-topic', 100)" />
+  </div>
+
+  <!-- About Me Section -->
   <div id="myaboutme">
     <app-myaboutme></app-myaboutme>
     <div class="purple_shadow_wrapper">
       <img src="assets/icons/Purple_shadow_L3.png" alt="Shadow Shape" />
     </div>
+    <img 
+      *ngIf="currentSectionIndex === 1"
+      src="assets/icons/arrowdown.png" 
+      alt="Arrow down" 
+      class="scroll-button scroll-down"
+      (click)="scrollToSection('myskills-section', 100)" />
   </div>
 
+  <!-- Skills Section -->
   <div id="myskills" class="myskills_wrapper">
     <img src="assets/icons/Green_shadow_G2.png" alt="Background Shape" class="bg_shape" />
     <app-myskills></app-myskills>
+    <img 
+      *ngIf="currentSectionIndex === 2"
+      src="assets/icons/arrowdown.png" 
+      alt="Arrow down" 
+      class="scroll-button scroll-down"
+      (click)="scrollToSection('myportfolio-section', 50)" />
   </div>
 
+  <!-- Portfolio Section -->
   <div id="myportfolio">
     <app-myportfolio></app-myportfolio>
+    <img 
+      *ngIf="currentSectionIndex === 3"
+      src="assets/icons/arrowdown.png" 
+      alt="Arrow down" 
+      class="scroll-button scroll-down"
+      (click)="scrollToSection('mycontact_topic', -260)" />
   </div>
 
-  <app-mycontact></app-mycontact>
+  <!-- Contact Section -->
+  <div id="mycontact">
+    <app-mycontact></app-mycontact>
+    <img
+      *ngIf="currentSectionIndex === 4"
+      src="assets/icons/arrowup.png"
+      alt="Arrow up"
+      class="scroll-button scroll-up"
+      (click)="scrollToTop()" />
+  </div>
 
 </div>
