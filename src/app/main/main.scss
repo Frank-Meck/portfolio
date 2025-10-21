@@ -4,10 +4,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   overflow: hidden;
 
   > app-mymain {
@@ -77,18 +75,53 @@
   /* Scroll Buttons */
   .scroll-button {
     position: fixed;
-    right: 30px;
+    right: 40px;   // weiter rechts
     bottom: 30px;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     cursor: pointer;
     z-index: 100;
-    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
     opacity: 0.8;
+    transition: all 0.3s ease;
 
     &:hover {
+      transform: scale(1.2);
       opacity: 1;
-      transform: scale(1.1);
+    }
+
+    &.scroll-up {
+      bottom: 100px; // optional höher positionieren
+    }
+
+    /* Responsive Anpassung */
+    @media (max-width: 1440px) {
+      right: 35px;
+      width: 55px;
+      height: 55px;
+    }
+
+    @media (max-width: 1024px) {
+      right: 30px;
+      width: 50px;
+      height: 50px;
+    }
+
+    @media (max-width: 768px) {
+      right: 25px;
+      width: 45px;
+      height: 45px;
+    }
+
+    @media (max-width: 512px) {
+      right: 20px;
+      width: 40px;
+      height: 40px;
+    }
+
+    @media (max-width: 320px) {
+      right: 15px;
+      width: 35px;
+      height: 35px;
     }
   }
 

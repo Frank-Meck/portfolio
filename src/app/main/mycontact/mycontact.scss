@@ -1,8 +1,7 @@
 @use '../../../styles/variables' as v;
 
-
 .contact_main {
-  padding-top:100px; 
+  padding-top: 50px;
   width: 100%;
   position: relative;
   display: flex;
@@ -11,36 +10,44 @@
   background-color: v.$basecolor_background_color;
   overflow: hidden;
 
+ 
   .purple_shadow_left_wrapper {
     position: absolute;
-    top: 400px;
+    top: 200px;
     left: 0;
     bottom: 0;
+    height: 100%;
     width: auto;
+    transform: scaleX(1.5);
+    transform-origin: left;
+    object-fit: contain;
     z-index: 0;
     pointer-events: none;
     display: flex;
 
     img {
-      height: 100%;       
-      max-height: 100vh;  
+      height: 100%;
+      max-height: 100vh;
       width: auto;
       object-fit: contain;
       display: block;
     }
+
+   
+    @media (max-width: 900px) {
+      display: none;
+    }
   }
 
-  
+
   .headline_contact {
-    padding-top: 100px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     width: 60%;
-    margin: 0px auto 60px 0px;
+    margin: 0 auto 0 0;
     position: relative;
 
-  
     .mycontact_inlie {
       flex: 1 1 auto;
       height: 4px;
@@ -58,7 +65,7 @@
       flex-direction: column;
       align-items: center;
       gap: 10px;
-      margin: 60px 0 40px 0;
+      margin: 0 0 40px 0;
 
       .mycontact_inlie {
         display: none;
@@ -70,6 +77,7 @@
     }
   }
 
+ 
   .mycontact_section {
     width: 100%;
     max-width: v.$max_width;
@@ -95,6 +103,7 @@
         gap: 30px;
       }
 
+   
       .contact_info {
         flex: 1;
         color: v.$basecolor_text;
@@ -121,6 +130,7 @@
         }
       }
 
+    
       .input_contact {
         flex: 1;
         display: flex;
@@ -253,27 +263,14 @@
       }
     }
   }
-}
 
-@media (max-width: 768px) {
-  .contact_main {
+
+  @media (max-width: 768px) {
     padding-left: 5px;
     padding-right: 5px;
-  }
 
-  .mycontact_content {
-    gap: 20px;
-  }
-}
-
-@media (max-width: 900px) {
-  .purple_shadow_left_wrapper {
-    display: none;
-  }
-}
-
-@media (min-width: 901px) {
-  .purple_shadow_left_wrapper {
-    display: flex;
+    .mycontact_content {
+      gap: 20px;
+    }
   }
 }

@@ -229,7 +229,7 @@
 
     .intro_line {
       height: 2px;
-      width: 100px;
+       width: clamp(100px, calc((100vw - 980px) / (1440 - 980) * (250 - 100) + 100px), 250px);
       background-color: v.$basecolor_purple;
     }
 

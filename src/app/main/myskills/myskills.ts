@@ -1,18 +1,19 @@
 import { Component } from '@angular/core';
 import { LanguageService } from '../../shared/services/language.service';
-import { Skills } from '../../main/myskills/skills/skills'; // Adjust the path as needed
-import { NgClass } from '@angular/common'; // <-- important for [ngClass]
+import { Skills } from '../../main/myskills/skills/skills'; // standalone component
+import { NgClass } from '@angular/common';
 import { Router } from '@angular/router';
-
+import { ScrollService } from '../../shared/services/scroll';
 
 /**
  * @component
  * @description Component representing the "My Skills" section.
  * Displays skill highlights and handles navigation to the contact section.
+ * Uses ScrollService to centralize scroll behavior.
  */
 @Component({
   selector: 'app-myskills',
-  imports: [Skills, NgClass], // standalone Skills component
+  imports: [Skills, NgClass],
   templateUrl: './myskills.html',
   styleUrls: ['./myskills.scss']
 })
@@ -22,9 +23,13 @@ export class Myskills {
    * @constructor
    * @param langService - Service to manage language selection and translations.
    * @param router - Angular Router service for navigation.
-   * @description Initializes the Myskills component with language and router services.
+   * @param scrollService - Service to handle scrolling and notify Main component.
    */
-  constructor(public langService: LanguageService, private router: Router) {}
+  constructor(
+    public langService: LanguageService,
+    private router: Router,
+    private scrollService: ScrollService
+  ) {}
 
 
 
@@ -41,25 +46,16 @@ export class Myskills {
 
   /**
    * @method
-   * @description Scrolls smoothly to the "My Contact" section.
-   * If the current route starts with '/main', scrolls directly.
-   * Otherwise, navigates to '/main/mycontact' first, then scrolls.
+   * @description Scrolls smoothly to the "My Contact" section using ScrollService.
+   * Works from any route: navigates to /main if needed, then scrolls.
    */
   scrollToMyContact() {
+    const scrollAction = () => this.scrollService.scrollToSection('mycontact_topic', -100);
+
     if (this.router.url.startsWith('/main')) {
-      const el = document.getElementById('mycontact-section');
-      if (el) { 
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' }); 
-      }
+      scrollAction();
     } else {
-      this.router.navigate(['/main/mycontact']).then(() => {
-        setTimeout(() => {
-          const el = document.getElementById('mycontact-section');
-          if (el) { 
-            el.scrollIntoView({ behavior: 'smooth', block: 'start' }); 
-          }
-        }, 50);
-      });
+      this.router.navigate(['/main']).then(() => setTimeout(() => scrollAction(), 50));
     }
   }
 }

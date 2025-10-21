@@ -1,15 +1,19 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, HostListener, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { Subscription } from 'rxjs';
+
 import { SharedModule } from '../shared/shared.module';
 import { Mymain } from './mymain/mymain';
 import { Myaboutme } from './myaboutme/myaboutme';
 import { Myskills } from './myskills/myskills';
 import { Myportfolio } from './myportfolio/myportfolio';
 import { Mycontact } from './mycontact/mycontact';
+import { ScrollService } from '../shared/services/scroll';
 
 /**
- * Main component that handles scrolling and navigation between sections.
+ * Main component that manages section visibility, scroll position,
+ * and the up/down arrow logic.
  */
 @Component({
   selector: 'app-main',
@@ -27,69 +31,93 @@ import { Mycontact } from './mycontact/mycontact';
   templateUrl: './main.html',
   styleUrls: ['./main.scss']
 })
-export class Main implements AfterViewInit {
+export class Main implements AfterViewInit, OnDestroy {
 
-  /** Array of section IDs in order */
+  /** Ordered list of main section IDs */
   sections: string[] = ['mymain', 'myaboutme', 'myskills', 'myportfolio', 'mycontact'];
 
-  /** Index of the currently active section */
+  /** Tracks the index of the currently active section */
   currentSectionIndex: number = 0;
 
-  /** Whether the bottom section (mycontact) is at least partially visible */
+  /** Indicates if the contact section is visible or has been triggered */
   isAtBottom: boolean = false;
 
-  constructor() {}
+  /** Subscription for section change events */
+  private sectionSub!: Subscription;
 
+  constructor(private scrollService: ScrollService) {}
 
   /**
-   * Lifecycle hook called after view initialization.
-   * Checks if the bottom section is visible on load.
+   * After the view initializes, we check the current scroll position
+   * and subscribe to global section scroll events.
    */
   ngAfterViewInit() {
     this.checkScrollPosition();
-  }
 
-
-  /**
-   * Scrolls to a specific section and updates the currentSectionIndex.
-   * @param id The ID of the section to scroll to.
-   * @param offset Optional vertical offset.
-   */
-  scrollToSection(id: string, offset: number = 0) {
-    const element = document.getElementById(id);
-    if (element) {
-      const y = element.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-
-      // Update the currentSectionIndex based on the ID
+    // Subscribe to ScrollService section changes
+    this.sectionSub = this.scrollService.sectionTarget$.subscribe(id => {
       const index = this.sections.findIndex(s => id.includes(s));
       if (index !== -1) {
         this.currentSectionIndex = index;
       }
-    }
+
+      // Wenn irgendein Element von "mycontact" angesprungen wurde → ArrowUp anzeigen
+      if (id.includes('mycontact')) {
+        this.isAtBottom = true;
+      } else {
+        // Sonst dynamisch prüfen
+        this.checkScrollPosition();
+      }
+    });
   }
 
+  /**
+   * Cleans up subscriptions to avoid memory leaks.
+   */
+  ngOnDestroy() {
+    if (this.sectionSub) this.sectionSub.unsubscribe();
+  }
 
   /**
-   * Scrolls to the top of the page.
+   * Listens to global window scroll events
+   * and checks whether the contact section is visible.
+   */
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.checkScrollPosition();
+  }
+
+  /**
+   * Scrolls smoothly to a specific section using the shared ScrollService.
+   * @param id - The section ID to scroll to.
+   * @param offset - Optional offset in pixels (e.g. for header height).
+   */
+  scrollToSection(id: string, offset: number = 0) {
+    this.scrollService.scrollToSection(id, offset);
+  }
+
+  /**
+   * Scrolls smoothly back to the top using the shared ScrollService.
    */
   scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    this.currentSectionIndex = 0;
+    this.scrollService.scrollToTop();
   }
 
-
   /**
-   * Checks the scroll position to determine if the bottom section is visible.
+   * Determines whether the contact section is visible
+   * and updates `isAtBottom` accordingly.
    */
-checkScrollPosition() {
-  const contactSection = document.getElementById('mycontact');
-  if (!contactSection) return;
+  checkScrollPosition() {
+    const contactSection = document.getElementById('mycontact');
+    if (!contactSection) return;
 
-  const rect = contactSection.getBoundingClientRect();
-  const windowHeight = window.innerHeight;
+    const rect = contactSection.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
 
-  const scrollCorrection = 500; // stop 300px vorher
-  this.isAtBottom = rect.top < windowHeight - scrollCorrection;
-}
+    const visibleHeight = Math.min(windowHeight, rect.bottom) - Math.max(0, rect.top);
+    const visibleRatio = visibleHeight / rect.height;
+
+    // Mark as "bottom" if at least 50% of the contact section is visible
+    this.isAtBottom = visibleRatio >= 0.5;
+  }
 }

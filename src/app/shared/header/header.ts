@@ -2,7 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../services/language.service';
 import { Router } from '@angular/router';
+import { ScrollService } from '../../shared/services/scroll';
 
+/**
+ * Header component that manages navigation, language switching,
+ * and smooth scrolling to different sections using ScrollService.
+ */
 @Component({
   selector: 'app-header',
   templateUrl: './header.html',
@@ -11,20 +16,26 @@ import { Router } from '@angular/router';
   imports: [CommonModule]
 })
 export class Header {
+
+  /** Controls whether the mobile navigation menu is open */
   menuOpen = false;
 
   /**
    * @constructor
-   * @param {LanguageService} langService - Service for managing language translations.
-   * @param {Router} router - Angular Router used for navigation and smooth scrolling.
+   * @param {LanguageService} langService - Service for managing translations.
+   * @param {Router} router - Angular Router for navigation.
+   * @param {ScrollService} scrollService - Shared service for smooth scrolling.
    */
-  constructor(public langService: LanguageService, private router: Router) {}
+  constructor(
+    public langService: LanguageService,
+    private router: Router,
+    private scrollService: ScrollService
+  ) {}
+
 
 
   /**
-   * @method toggleMenu
-   * @description Toggles the visibility of the navigation menu.
-   * Opens it if closed, closes it if open.
+   * Toggles the mobile navigation menu open/closed.
    */
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
@@ -32,8 +43,7 @@ export class Header {
 
 
   /**
-   * @method closeMenu
-   * @description Closes the navigation menu if it is currently open.
+   * Closes the mobile navigation menu if open.
    */
   closeMenu() {
     if (this.menuOpen) {
@@ -43,33 +53,26 @@ export class Header {
 
 
   /**
-   * @method setLanguage
-   * @param {'DE' | 'EN'} lang - The language to set.
-   * @description Updates the application's current language using the LanguageService.
-   * If the hamburger menu is open, it closes it.
+   * Sets the active application language and closes the menu (if open).
+   * @param {'DE' | 'EN'} lang - The language code to activate.
    */
   setLanguage(lang: 'DE' | 'EN') {
     this.langService.setLang(lang);
-
-    if (this.menuOpen) {
-      this.closeMenu();
-    }
+    this.closeMenu();
   }
 
 
   /**
-   * @method goHome
-   * @description Navigates to the home (main) page and scrolls to the top.
-   * If already on the main page, only scrolls up smoothly without navigation.
-   * Closes the hamburger menu if it's open.
+   * Navigates to the main section and scrolls to the top.
+   * If already on `/main`, performs only a smooth scroll.
    */
   goHome() {
+    const scrollTop = () => this.scrollService.scrollToTop();
+
     if (this.router.url.startsWith('/main')) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      scrollTop();
     } else {
-      this.router.navigate(['/main']).then(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
+      this.router.navigate(['/main']).then(() => setTimeout(() => scrollTop(), 50));
     }
 
     this.closeMenu();
@@ -77,24 +80,18 @@ export class Header {
 
 
   /**
-   * @method scrollToSection
+   * Smoothly scrolls to a specific section using the shared ScrollService.
+   * Works both when already on /main and when navigating from another route.
    * @param {string} elementId - The ID of the target section.
-   * @param {number} offset - The offset to account for sticky header.
-   * @description Smoothly scrolls to a section while considering the sticky header height.
+   * @param {number} offset - Optional offset (for sticky headers, etc.)
    */
   scrollToSection(elementId: string, offset: number = 100) {
-    const scroll = () => {
-      const el = document.getElementById(elementId);
-      if (el) {
-        const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    };
+    const performScroll = () => this.scrollService.scrollToSection(elementId, offset);
 
     if (this.router.url.startsWith('/main')) {
-      scroll();
+      performScroll();
     } else {
-      this.router.navigate(['/main']).then(() => setTimeout(() => scroll(), 50));
+      this.router.navigate(['/main']).then(() => setTimeout(() => performScroll(), 50));
     }
 
     this.closeMenu();

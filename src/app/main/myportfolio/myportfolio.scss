@@ -1,8 +1,8 @@
 @use '../../../styles/variables' as v;
 
 
-.myportfolio_main{
-  width:100%;
+.myportfolio_main {
+  width: 100%;
   overflow: hidden;
 }
 
@@ -37,10 +37,13 @@
 
 .green_shadow_wrapper {
   position: absolute;
-  top: -180%;
-  right: -235px;
-  width: 100%;
+  right: -240px;
+  top: -140%;
+  width: auto;
   height: auto;
+  transform: scaleX(2);
+  transform-origin: center right;
+  object-fit: fill;
   display: flex;
   justify-content: flex-end;
   z-index: 0;
@@ -50,7 +53,7 @@
     display: block;
     width: auto;
     height: auto;
-    max-width: 100%;
+    max-width: 150%;
     opacity: 0.5;
     pointer-events: none;
   }
@@ -188,7 +191,7 @@
 }
 
 @media (max-width: 1100px) {
- 
+
   .green_shadow_wrapper {
     right: 0px;
     top: -80%;
@@ -197,7 +200,7 @@
 
 
 @media (max-width: 1024px) {
- .special_image_left_wrapper {
+  .special_image_left_wrapper {
     top: 45%;
   }
 
@@ -222,8 +225,7 @@
 }
 
 @media (max-width: 550px) {
-  .special_image_left_wrapper {
-  }
+  .special_image_left_wrapper {}
 
   .portfolio_teamfeedback {
     padding: 30px 16px;
@@ -262,6 +264,5 @@
 }
 
 @media (max-width: 360px) {
-  .green_shadow_wrapper {
-  }
+  .green_shadow_wrapper {}
 }
