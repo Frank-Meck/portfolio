@@ -1,8 +1,20 @@
 <div class="portfolio_item" [ngClass]="{'reverse': reverseLayout}">
+
+  <!-- Bild mit Fade-Right + Zoom beim Scrollen -->
   <div class="portfolio_image">
-    <img [src]="imageUrl" [alt]="project.title" />
+   <img 
+      [src]="imageUrl" 
+      [alt]="project.title"
+      [attr.data-aos]="reverseLayout ? 'fade-left' : 'fade-right'"
+      data-aos-duration="1000"
+      data-aos-easing="ease-out-cubic"
+      data-aos-offset="150"
+      data-aos-once="false"
+      data-aos-anchor-placement="top-bottom"
+    />
   </div>
 
+  <!-- Text statisch, keine Animation -->
   <div class="portfolio_text">
     <h3 class="txt_project">{{ project.title }}</h3>
     <p class="txt_project_skills">{{ project.skills[langService.currentLang] }}</p>
@@ -36,4 +48,5 @@
       </ng-template>
     </div>
   </div>
+
 </div>
