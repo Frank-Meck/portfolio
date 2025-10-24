@@ -22,6 +22,7 @@
   font-size: 23px;
   line-height: 120%;
   color: v.$header_text;
+  background-color: v.$header_background_color;
 }
 
 .header_left {
@@ -62,7 +63,8 @@
 
     &:hover {
       color: v.$basecolor_hover_text_green; 
-      text-decoration: underline;           
+      text-decoration: underline;    
+       cursor:pointer;       
     }
   }
 }
@@ -118,6 +120,7 @@
       &:hover {
         color: v.$basecolor_hover_text_green;
         text-decoration: underline;
+         cursor:pointer;
       }
     }
   }
@@ -166,6 +169,7 @@
       &:hover {
         color: v.$basecolor_hover_text_green;
         text-decoration: underline;
+        cursor:pointer;
       }
     }
 

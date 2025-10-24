@@ -1,62 +1,45 @@
 <div class="main_box">
 
-  <!-- Main Section -->
-  <div id="mymain">
-    <app-mymain></app-mymain>
-    <img 
-      *ngIf="currentSectionIndex === 0"
-      src="assets/icons/arrowdown.png" 
-      alt="Arrow down" 
-      class="scroll-button scroll-down"
-      (click)="scrollToSection('myaboutme-topic', 100)" />
+  <!-- Overlay -->
+  <div class="overlay_div_1">
+    <img class="overlay_img" src="assets/icons/vector.png" alt="Shadow Shape" />
   </div>
 
-  <!-- About Me Section -->
+  <!-- Sections -->
+  <div id="mymain"><app-mymain></app-mymain></div>
+
   <div id="myaboutme">
     <app-myaboutme></app-myaboutme>
     <div class="purple_shadow_wrapper">
       <img src="assets/icons/Purple_shadow_L3.png" alt="Shadow Shape" />
     </div>
-    <img 
-      *ngIf="currentSectionIndex === 1"
-      src="assets/icons/arrowdown.png" 
-      alt="Arrow down" 
-      class="scroll-button scroll-down"
-      (click)="scrollToSection('myskills-section', 100)" />
   </div>
 
-  <!-- Skills Section -->
   <div id="myskills" class="myskills_wrapper">
     <img src="assets/icons/Green_shadow_G2.png" alt="Background Shape" class="bg_shape" />
     <app-myskills></app-myskills>
-    <img 
-      *ngIf="currentSectionIndex === 2"
-      src="assets/icons/arrowdown.png" 
-      alt="Arrow down" 
-      class="scroll-button scroll-down"
-      (click)="scrollToSection('myportfolio-section', 50)" />
   </div>
 
-  <!-- Portfolio Section -->
-  <div id="myportfolio">
-    <app-myportfolio></app-myportfolio>
-    <img 
-      *ngIf="currentSectionIndex === 3"
-      src="assets/icons/arrowdown.png" 
-      alt="Arrow down" 
-      class="scroll-button scroll-down"
-      (click)="scrollToSection('mycontact_topic', -260)" />
-  </div>
+  <div id="myportfolio"><app-myportfolio></app-myportfolio></div>
 
-  <!-- Contact Section -->
-  <div id="mycontact">
-    <app-mycontact></app-mycontact>
-    <img
-      *ngIf="currentSectionIndex === 4"
-      src="assets/icons/arrowup.png"
-      alt="Arrow up"
-      class="scroll-button scroll-up"
-      (click)="scrollToTop()" />
-  </div>
+  <div id="mycontact_topic"><app-mycontact></app-mycontact></div>
+
+  <!-- 💡 Globaler Pfeil-Container (max-width 1440px) -->
+<div class="scroll-nav">
+  <img
+    *ngIf="showArrowDown"
+    src="assets/icons/arrowdown.png"
+    alt="Arrow down"
+    class="scroll-button arrow-down"
+    (click)="scrollToNextSection()"
+  />
+  <img
+    *ngIf="showArrowUp"
+    src="assets/icons/arrowup.png"
+    alt="Arrow up"
+    class="scroll-button arrow-up"
+    (click)="scrollToPreviousSection()"
+  />
+</div>
 
 </div>

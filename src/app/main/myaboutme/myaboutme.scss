@@ -15,11 +15,11 @@
     align-items: center;
     justify-content: space-between;
     gap: 5%;
-    padding: 0 30px; 
+    padding: 0 30px;
     margin-bottom: 50px;
     position: relative;
 
-  
+
     .myaboutme_content {
       flex: 0 1 clamp(280px, 40%, 471px);
       display: flex;
@@ -81,7 +81,7 @@
       }
     }
 
-   
+
     .myaboutme_right {
       position: relative;
       display: flex;
@@ -97,7 +97,7 @@
         justify-content: center;
         align-items: center;
 
-      
+
         img {
           width: 100%;
           max-width: 350px;
@@ -118,17 +118,17 @@
           height: 4px;
           background-color: v.$baseborder_color;
           z-index: 1;
-          width: calc(50vw + 50% - 0.5 * 350px - ((100vw - v.$max_width) / 2) - 30px);
+          width: calc(100vw - 240px);
         }
       }
 
-      
+
       .myaboutme_line {
         display: none;
       }
     }
 
- 
+
     @media (max-width: 1025px) {
       flex-direction: column;
       align-items: flex-start;
@@ -154,12 +154,12 @@
       }
     }
 
-    
+
     @media (max-width: 480px) {
       padding: 0 20px;
       gap: 20px;
 
-    
+
       .myaboutme_content {
         width: 100%;
         text-align: left;

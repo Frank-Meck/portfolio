@@ -50,4 +50,17 @@ export class ScrollService {
 
     this.sectionTargetSource.next('mymain');
   }
+
+  /**
+   * Scrolls to the next section in the provided sections array
+   * @param sections - Array of section IDs in order
+   * @param currentIndex - Current section index
+   * @param offset - Optional offset in px
+   */
+  scrollToNextSection(sections: string[], currentIndex: number, offset: number = 0) {
+    if (currentIndex < sections.length - 1) {
+      const nextId = sections[currentIndex + 1];
+      this.scrollToSection(nextId, offset);
+    }
+  }
 }

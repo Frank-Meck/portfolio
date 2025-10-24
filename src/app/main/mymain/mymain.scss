@@ -1,5 +1,10 @@
 @use '../../../styles/variables' as v;
 
+.mymain_main {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
 
 .mymain_container {
   position: relative;
@@ -7,19 +12,15 @@
   flex-direction: column;
   min-height: calc(100vh - #{v.$header_height});
   width: 100%;
+  max-width: v.$max_width;
   margin: 0;
-  overflow-x: hidden; 
 
-  .overlay_div_1,
-  .overlay_div_2 {
+  .overlay_div_1 {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-  }
-
-  .overlay_div_1 {
     z-index: 10;
     background: linear-gradient(
       to bottom,
@@ -30,12 +31,16 @@
   }
 
   .overlay_div_2 {
+    position: absolute;
+    top: -80px;
+    left: 50;
+    width: 102%;
+    height: 100%;
     z-index: 11;
     background-color: v.$basecolor_background_color;
     border-radius: 0% 0% 100% 0%;
   }
 }
-
 
 .mymain_page {
   width: 100%;
@@ -116,7 +121,7 @@
         margin-right: 20px;
 
         &.en {
-          top: 14px;
+          top: 24px;
           right: 102%;
         }
 
@@ -223,19 +228,26 @@
   padding-bottom: 40px;
 
   .box_line_links {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 20px;
 
     .intro_line {
+      position: absolute;
+      left: calc(-50vw + 50%);
       height: 2px;
-       width: clamp(100px, calc((100vw - 980px) / (1440 - 980) * (250 - 100) + 100px), 250px);
+      width: calc(50vw - 10px);
       background-color: v.$basecolor_purple;
+      z-index: 1;
     }
 
     .intro_links {
+      position: relative;
+      z-index: 2;
       display: flex;
       gap: 20px;
+      margin-left: clamp(75px, 15vw, 150px);
 
       a img {
         width: 28px;
@@ -277,7 +289,7 @@
         transform: translateY(-50%);
         height: 2px;
         background-color: v.$basecolor_purple;
-        width: calc(50% - 70px); 
+        width: calc(50% - 70px);
       }
 
       .intro_links {
@@ -306,7 +318,6 @@
     }
   }
 }
-
 
 @media (max-width: 750px) {
   .mymain_box {

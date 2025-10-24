@@ -293,50 +293,50 @@ export class LanguageService {
 
       ScopeAndOwnershipTitle: { EN: 'Scope and ownership of the product', DE: 'Umfang und Eigentum des Produkts' },
       ScopeAndOwnership: {
-        EN: `<span class="highlighted_text">Portfolio</span> has been developed as part of a student group project in a web development bootcamp at the 
-         <span class="highlighted_text">Developer</span> 
-         <span class="highlighted_text">Academy</span> 
-         <span class="highlighted_text">Ltd.</span>. 
-         It has an educational purpose and is not intended for extensive personal & business usage. 
-         As such, we cannot guarantee consistent availability, reliability, accuracy, or any other aspect of quality regarding this Product. 
-         The design of <span class="highlighted_text">Portfolio</span> is owned by 
-         <span class="highlighted_text">Developer</span> 
-         <span class="highlighted_text">Academy</span> 
-         <span class="highlighted_text">Ltd.</span>. Unauthorized use, reproduction, modification, distribution, or replication of the design is strictly prohibited.`,
-        DE: `<span class="highlighted_text">Portfolio</span> wurde im Rahmen eines Studentenprojekts im Webentwicklungs-Bootcamp der 
-         <span class="highlighted_text">Developer</span> 
-         <span class="highlighted_text">Akademie</span> 
-         <span class="highlighted_text">GmbH</span> entwickelt. 
-         Es hat einen Bildungszweck und ist nicht für umfangreiche persönliche oder geschäftliche Nutzung gedacht. 
-         Daher können wir keine durchgängige Verfügbarkeit, Zuverlässigkeit, Genauigkeit oder sonstige Qualitätsaspekte garantieren. 
-         Das Design von <span class="highlighted_text">Portfolio</span> gehört der 
-         <span class="highlighted_text">Developer</span> 
-         <span class="highlighted_text">Akademie</span> 
-         <span class="highlighted_text">GmbH</span>. Unbefugte Nutzung, Vervielfältigung, Veränderung oder Verbreitung ist strengstens verboten.`
+        EN: `<span class="highlighted_text">Portfolio</span> has been developed as part of a student group project in a web development bootcamp at the
+     <span class="highlighted_text">Developer</span>
+     <span class="highlighted_text">Academy</span>
+     <span class="highlighted_text">Ltd.</span>.
+     It has an educational purpose and is not intended for extensive personal & business usage.
+     As such, we cannot guarantee consistent availability, reliability, accuracy, or any other aspect of quality regarding this Product.
+     The design of <span class="highlighted_text">Portfolio</span> is owned by
+     <span class="highlighted_text">Developer</span>
+     <span class="highlighted_text">Academy</span>
+     <span class="highlighted_text">Ltd.</span>. Unauthorized use, reproduction, modification, distribution, or replication of the design is strictly prohibited.`,
+        DE: `<span class="highlighted_text">Portfolio</span> wurde im Rahmen eines Studentenprojekts im Webentwicklungs-Bootcamp der
+     <span class="highlighted_text">Developer</span>
+     <span class="highlighted_text">Akademie</span>
+     <span class="highlighted_text">GmbH</span> entwickelt.
+     Es hat einen Bildungszweck und ist nicht für umfangreiche persönliche oder geschäftliche Nutzung gedacht.
+     Daher können wir keine durchgängige Verfügbarkeit, Zuverlässigkeit, Genauigkeit oder sonstige Qualitätsaspekte garantieren.
+     Das Design von <span class="highlighted_text">Portfolio</span> gehört der
+     <span class="highlighted_text">Developer</span>
+     <span class="highlighted_text">Akademie</span>
+     <span class="highlighted_text">GmbH</span>. Unbefugte Nutzung, Vervielfältigung, Veränderung oder Verbreitung ist strengstens verboten.`
       },
+
 
       ProprietaryRightsTitle: { EN: 'Proprietary rights', DE: 'Eigentumsrechte' },
       ProprietaryRights: {
-        EN: `Aside from the design owned by 
-         <span class="highlighted_text">Developer</span> 
-         <span class="highlighted_text">Academy</span> 
-         <span class="highlighted_text">Ltd.</span>, we, the listed students, retain all proprietary rights in <span class="highlighted_text">Portfolio</span>, 
-         including any associated copyrighted material, trademarks, and other proprietary information.`,
-        DE: `Abgesehen vom Design der 
-         <span class="highlighted_text">Developer</span> 
-         <span class="highlighted_text">Akademie</span> 
-         <span class="highlighted_text">GmbH</span> behalten wir, die aufgeführten Studenten, alle Rechte an <span class="highlighted_text">Portfolio</span>, 
-         einschließlich urheberrechtlich geschützter Materialien, Marken und weiterer proprietärer Informationen.`
+        EN: `Aside from the design owned by
+     <span class="highlighted_text">Developer</span>
+     <span class="highlighted_text">Academy</span>
+     <span class="highlighted_text">Ltd.</span>, we, the listed students, retain all proprietary rights in <span class="highlighted_text">Portfolio</span>,
+     including any associated copyrighted material, trademarks, and other proprietary information.`,
+        DE: `Abgesehen vom Design der
+     <span class="highlighted_text">Developer</span>
+     <span class="highlighted_text">Akademie</span>
+     <span class="highlighted_text">GmbH</span> behalten wir, die aufgeführten Studenten, alle Rechte an <span class="highlighted_text">Portfolio</span>,
+     einschließlich urheberrechtlich geschützter Materialien, Marken und weiterer proprietärer Informationen.`
       },
 
       UseOfProductTitle: { EN: 'Use of the product', DE: 'Nutzung des Produkts' },
       UseOfProduct: {
-        EN: `<span class="highlighted_text">Portfolio</span> is intended to be used for lawful purposes only, in accordance with all applicable laws and regulations. 
-         Any use of <span class="highlighted_text">Portfolio</span> for illegal activities, or to harass, harm, threaten, or intimidate another person, is strictly prohibited. 
-         You are solely responsible for your interactions with other users of <span class="highlighted_text">Portfolio</span>.`,
-        DE: `<span class="highlighted_text">Portfolio</span> darf nur zu legalen Zwecken und gemäß den geltenden Gesetzen genutzt werden. 
-         Jegliche Nutzung von <span class="highlighted_text">Portfolio</span> für illegale Aktivitäten oder um andere Personen zu belästigen, zu schädigen, zu bedrohen oder einzuschüchtern, ist strengstens verboten. 
-         Sie sind allein für Ihre Interaktionen mit anderen Nutzern verantwortlich.`
+        EN: `By accessing and using <span class="highlighted_text">Portfolio</span> (Product), you acknowledge and agree to the following terms and conditions, 
+         and any policies, guidelines, or amendments thereto that may be presented to you from time to time. 
+         We, the listed students, may update or change the terms and conditions from time to time without notice.`,
+        DE: `Durch den Zugriff und die Nutzung von <span class="highlighted_text">Portfolio</span> (Produkt) erkennen Sie die folgenden Bedingungen und Richtlinien an. 
+         Wir, die aufgeführten Studenten, können die Bedingungen jederzeit ohne Vorankündigung ändern.`
       },
 
       DisclaimerTitle: { EN: 'Disclaimer of warranties and limitation of liability', DE: 'Haftungsausschluss und Beschränkung der Haftung' },
@@ -366,19 +366,13 @@ export class LanguageService {
       },
 
       Contact: {
-        EN: `For any questions or notices, please contact us at [frankmeckel@ymail.com].`,
-        DE: `Bei Fragen oder Mitteilungen kontaktieren Sie uns bitte unter [frankmeckel@ymail.com].`
+        EN: `For any questions or notices, please contact us at [kontakt@frank-meckel.de].`,
+        DE: `Bei Fragen oder Mitteilungen kontaktieren Sie uns bitte unter [kontakt@frank-meckel.de].`
       },
       Date: { EN: `Date: July 26, 2025`, DE: `Datum: 26. Juli 2025` },
-      footer: {
-        EN: `Back to homepage`,
-        DE: `Zurück zur Startseite`
-      },
-
-
+      footer: { EN: `Back to home page`, DE: `Zurück zur Startseite` }
     }
   };
-
 
   /**
    * @class LanguageService

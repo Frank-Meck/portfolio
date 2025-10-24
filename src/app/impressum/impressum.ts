@@ -13,6 +13,7 @@ import { LanguageService } from '../shared/services/language.service';
  */
 @Component({
   selector: 'app-impressum',
+  standalone:true,
   imports: [RouterLink],
   templateUrl: './impressum.html',
   styleUrls: ['./impressum.scss']

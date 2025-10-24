@@ -4,10 +4,6 @@ import { LanguageService } from '../services/language.service';
 import { Router } from '@angular/router';
 import { ScrollService } from '../../shared/services/scroll';
 
-/**
- * Header component that manages navigation, language switching,
- * and smooth scrolling to different sections using ScrollService.
- */
 @Component({
   selector: 'app-header',
   templateUrl: './header.html',
@@ -17,55 +13,34 @@ import { ScrollService } from '../../shared/services/scroll';
 })
 export class Header {
 
-  /** Controls whether the mobile navigation menu is open */
+  /** Steuert, ob das mobile Menu geöffnet ist */
   menuOpen = false;
 
-  /**
-   * @constructor
-   * @param {LanguageService} langService - Service for managing translations.
-   * @param {Router} router - Angular Router for navigation.
-   * @param {ScrollService} scrollService - Shared service for smooth scrolling.
-   */
   constructor(
     public langService: LanguageService,
     private router: Router,
     private scrollService: ScrollService
   ) {}
 
-
-
-  /**
-   * Toggles the mobile navigation menu open/closed.
-   */
+  /** Öffnet oder schließt das mobile Menu */
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
 
-
-  /**
-   * Closes the mobile navigation menu if open.
-   */
+  /** Schließt das mobile Menu */
   closeMenu() {
     if (this.menuOpen) {
       this.menuOpen = false;
     }
   }
 
-
-  /**
-   * Sets the active application language and closes the menu (if open).
-   * @param {'DE' | 'EN'} lang - The language code to activate.
-   */
+  /** Setzt die aktuelle Sprache und schließt das Menu */
   setLanguage(lang: 'DE' | 'EN') {
     this.langService.setLang(lang);
     this.closeMenu();
   }
 
-
-  /**
-   * Navigates to the main section and scrolls to the top.
-   * If already on `/main`, performs only a smooth scroll.
-   */
+  /** Navigiert nach oben zur Startseite bzw. mymain */
   goHome() {
     const scrollTop = () => this.scrollService.scrollToTop();
 
@@ -78,12 +53,10 @@ export class Header {
     this.closeMenu();
   }
 
-
   /**
-   * Smoothly scrolls to a specific section using the shared ScrollService.
-   * Works both when already on /main and when navigating from another route.
-   * @param {string} elementId - The ID of the target section.
-   * @param {number} offset - Optional offset (for sticky headers, etc.)
+   * Scrollt zu einer Section über den ScrollService
+   * @param elementId ID der Ziel-Section
+   * @param offset Offset für z.B. Header-Höhe
    */
   scrollToSection(elementId: string, offset: number = 100) {
     const performScroll = () => this.scrollService.scrollToSection(elementId, offset);

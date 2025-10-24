@@ -1,123 +1,98 @@
-import { Component, AfterViewInit, HostListener, OnDestroy } from '@angular/core';
+import { Component, AfterViewInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { ScrollService } from '../shared/services/scroll';
 
-import { SharedModule } from '../shared/shared.module';
+// Sections importieren
 import { Mymain } from './mymain/mymain';
 import { Myaboutme } from './myaboutme/myaboutme';
 import { Myskills } from './myskills/myskills';
 import { Myportfolio } from './myportfolio/myportfolio';
 import { Mycontact } from './mycontact/mycontact';
-import { ScrollService } from '../shared/services/scroll';
 
-/**
- * Main component that manages section visibility, scroll position,
- * and the up/down arrow logic.
- */
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-    SharedModule,
-    Mymain,
-    Myaboutme,
-    Myskills,
-    Myportfolio,
-    Mycontact
-  ],
+  imports: [CommonModule, RouterModule, Mymain, Myaboutme, Myskills, Myportfolio, Mycontact],
   templateUrl: './main.html',
   styleUrls: ['./main.scss']
 })
-export class Main implements AfterViewInit, OnDestroy {
+export class Main implements AfterViewInit {
 
-  /** Ordered list of main section IDs */
-  sections: string[] = ['mymain', 'myaboutme', 'myskills', 'myportfolio', 'mycontact'];
+  /** DOM-Container IDs der Sections */
+  sections: string[] = ['mymain', 'myaboutme', 'myskills', 'myportfolio', 'mycontact_topic'];
 
-  /** Tracks the index of the currently active section */
+  /** Ziel-IDs für Scroll (kann von Container-IDs abweichen) */
+  scrollTargets: string[] = ['mymain', 'myaboutme-topic', 'myskills-section', 'myportfolio-section', 'mycontact_topic'];
+
+  /** Index der aktuell sichtbaren Section */
   currentSectionIndex: number = 0;
 
-  /** Indicates if the contact section is visible or has been triggered */
-  isAtBottom: boolean = false;
-
-  /** Subscription for section change events */
-  private sectionSub!: Subscription;
+  /** Steuerung der Pfeile */
+  showArrowUp: boolean = false;   
+  showArrowDown: boolean = true;  
 
   constructor(private scrollService: ScrollService) {}
 
-  /**
-   * After the view initializes, we check the current scroll position
-   * and subscribe to global section scroll events.
-   */
   ngAfterViewInit() {
-    this.checkScrollPosition();
-
-    // Subscribe to ScrollService section changes
-    this.sectionSub = this.scrollService.sectionTarget$.subscribe(id => {
-      const index = this.sections.findIndex(s => id.includes(s));
-      if (index !== -1) {
-        this.currentSectionIndex = index;
-      }
-
-      // Wenn irgendein Element von "mycontact" angesprungen wurde → ArrowUp anzeigen
-      if (id.includes('mycontact')) {
-        this.isAtBottom = true;
-      } else {
-        // Sonst dynamisch prüfen
-        this.checkScrollPosition();
-      }
-    });
+    // Initial die aktuelle Section bestimmen
+    setTimeout(() => this.updateCurrentSection(), 50);
   }
 
-  /**
-   * Cleans up subscriptions to avoid memory leaks.
-   */
-  ngOnDestroy() {
-    if (this.sectionSub) this.sectionSub.unsubscribe();
-  }
-
-  /**
-   * Listens to global window scroll events
-   * and checks whether the contact section is visible.
-   */
+  /** Prüft, welche Section aktuell am nächsten am oberen Viewport-Rand ist */
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    this.checkScrollPosition();
+    this.updateCurrentSection();
   }
 
-  /**
-   * Scrolls smoothly to a specific section using the shared ScrollService.
-   * @param id - The section ID to scroll to.
-   * @param offset - Optional offset in pixels (e.g. for header height).
-   */
-  scrollToSection(id: string, offset: number = 0) {
-    this.scrollService.scrollToSection(id, offset);
+  private updateCurrentSection() {
+    let closestIndex = 0;
+    let minDistance = Infinity;
+
+    this.sections.forEach((id, index) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const rect = el.getBoundingClientRect();
+      const distance = Math.abs(rect.top); 
+
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestIndex = index;
+      }
+    });
+
+    this.currentSectionIndex = closestIndex;
+    this.updateArrows();
+
+    console.log('Current visible section:', this.sections[closestIndex], 'Index:', closestIndex);
   }
 
-  /**
-   * Scrolls smoothly back to the top using the shared ScrollService.
-   */
-  scrollToTop() {
+  /** Scrollt zur nächsten Section */
+  scrollToNextSection() {
+    if (this.currentSectionIndex < this.scrollTargets.length - 1) {
+      const nextId = this.scrollTargets[this.currentSectionIndex + 1];
+      console.log('Arrow Down clicked. Current index:', this.currentSectionIndex);
+      console.log('Scrolling to next ID:', nextId);
+      this.scrollService.scrollToSection(nextId, 50);
+    } else {
+      console.log('Arrow Down clicked, but already at last section.');
+    }
+  }
+
+  /** Scrollt nach oben zur ersten Section */
+  scrollToPreviousSection() {
+    console.log('Arrow Up clicked. Scrolling to top.');
     this.scrollService.scrollToTop();
   }
 
-  /**
-   * Determines whether the contact section is visible
-   * and updates `isAtBottom` accordingly.
-   */
-  checkScrollPosition() {
-    const contactSection = document.getElementById('mycontact');
-    if (!contactSection) return;
+  /** Aktualisiert die Sichtbarkeit der Pfeile */
+  private updateArrows() {
+    // Arrow Up nur sichtbar, wenn die letzte Section (mycontact_topic) sichtbar ist
+    this.showArrowUp = this.sections[this.currentSectionIndex] === 'mycontact_topic';
 
-    const rect = contactSection.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-
-    const visibleHeight = Math.min(windowHeight, rect.bottom) - Math.max(0, rect.top);
-    const visibleRatio = visibleHeight / rect.height;
-
-    // Mark as "bottom" if at least 50% of the contact section is visible
-    this.isAtBottom = visibleRatio >= 0.5;
+    // Arrow Down nur sichtbar, wenn nicht letzte Section und auf Desktop
+    const isMobile = window.innerWidth <= 768;
+    this.showArrowDown = !this.showArrowUp && !isMobile;
   }
 }
