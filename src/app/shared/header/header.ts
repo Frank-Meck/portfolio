@@ -59,14 +59,19 @@ export class Header {
    * @param offset Offset für z.B. Header-Höhe
    */
   scrollToSection(elementId: string, offset: number = 100) {
-    const performScroll = () => this.scrollService.scrollToSection(elementId, offset);
+  const performScroll = () => this.scrollService.scrollToSection(elementId, offset);
 
-    if (this.router.url.startsWith('/main')) {
-      performScroll();
-    } else {
-      this.router.navigate(['/main']).then(() => setTimeout(() => performScroll(), 50));
-    }
-
-    this.closeMenu();
+  // Wenn wir schon auf der Startseite sind, nur scrollen
+  if (this.router.url === '/' || this.router.url.startsWith('/?')) {
+    performScroll();
+  } else {
+    // Wenn wir auf einer anderen Seite sind, erst zurück zur Startseite navigieren
+    this.router.navigate(['/']).then(() => {
+      setTimeout(() => performScroll(), 50);
+    });
   }
+
+  this.closeMenu();
+}
+
 }
