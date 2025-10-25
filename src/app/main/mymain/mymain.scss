@@ -4,7 +4,7 @@
   width: 100vw;
   display: flex;
   justify-content: center;
-}
+ }
 
 .mymain_container {
   position: relative;
@@ -30,16 +30,7 @@
     );
   }
 
-  .overlay_div_2 {
-    position: absolute;
-    top: -80px;
-    left: 50;
-    width: 102%;
-    height: 100%;
-    z-index: 11;
-    background-color: v.$basecolor_background_color;
-    border-radius: 0% 0% 100% 0%;
-  }
+
 }
 
 .mymain_page {
@@ -60,9 +51,10 @@
   position: relative;
   overflow: visible;
 
-  .intro_left {
-    position: relative;
-    z-index: 20;
+.intro_left {
+  position: relative;
+  z-index: 10; // 👈 so bleibt das Portrait unter dem Overlay
+
 
     .background_img {
       position: absolute;

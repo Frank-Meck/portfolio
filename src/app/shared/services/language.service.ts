@@ -280,7 +280,7 @@ export class LanguageService {
       PostcodeCity: { EN: '58540 Meinerzhagen', DE: '58540 Meinerzhagen' },
 
       ExploringBoardTitle: { EN: `Exploring the Board`, DE: `Erkundung des Board` },
-      ExploringBoard: { EN: `Email: [kontakt@frank-meckel.de]`, DE: `Email: [kontakt@frank-meckel.de]` },
+      ExploringBoard: { EN: `Email: [<span class="highlighted_text_kontakt">kontakt@frank-meckel.de</span>]`, DE: `Email: [<span class="highlighted_text_kontakt">kontakt@frank-meckel.de</span>]` },
 
       AcceptanceOfTermsTitle: { EN: 'Acceptance of terms', DE: 'Annahme der Bedingungen' },
       AcceptanceOfTerms: {
@@ -366,8 +366,8 @@ export class LanguageService {
       },
 
       Contact: {
-        EN: `For any questions or notices, please contact us at [kontakt@frank-meckel.de].`,
-        DE: `Bei Fragen oder Mitteilungen kontaktieren Sie uns bitte unter [kontakt@frank-meckel.de].`
+        EN: `For any questions or notices, please contact us at [<span class="highlighted_text_kontakt">kontakt@frank-meckel.de</span>].`,
+        DE: `Bei Fragen oder Mitteilungen kontaktieren Sie uns bitte unter [<span class="highlighted_text_kontakt">kontakt@frank-meckel.de</span>].`
       },
       Date: { EN: `Date: July 26, 2025`, DE: `Datum: 26. Juli 2025` },
       footer: { EN: `Back to home page`, DE: `Zurück zur Startseite` }

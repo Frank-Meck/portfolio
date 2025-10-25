@@ -17,62 +17,53 @@ import { Modal } from '../components/modal/modal';
 })
 export class Footer {
 
-  /** Indicates whether the email modal is currently visible. */
   showEmailModal = false;
 
-
-  /**
-   * Creates an instance of the Footer component.
-   * @param langService - The language service for translations.
-   * @param router - Angular router used for navigation.
-   */
   constructor(
     public langService: LanguageService,
     private router: Router
   ) {}
 
-
-  /**
-   * Opens the email hint modal.
-   * Called when the user clicks the mail icon in the footer.
-   */
   openEmailModal(): void {
     this.showEmailModal = true;
   }
 
-
-  /**
-   * Closes the email hint modal.
-   * Triggered when the user clicks the "OK" button in the modal.
-   */
   closeEmailModal(): void {
     this.showEmailModal = false;
   }
 
+  /** 🔹 Neues: Modal öffnen und danach scrollen */
+  openEmailModalAndScroll(): void {
+    this.showEmailModal = true;
 
-  /**
-   * Smoothly scrolls to the "mycontact-section" element.
-   * Navigates to the main page first if not already on it.
-   */
+    // Kurzes Delay, damit Modal gerendert wird, dann scrollen
+    setTimeout(() => {
+      this.scrollToMyContact();
+    }, 50);
+  }
+
   scrollToMyContact(): void {
     if (this.router.url.startsWith('/main')) {
-      const el = document.getElementById('mycontact-section');
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const el = document.getElementById('mycontact_topic'); // id aus main.html
+      if (el) {
+        const headerHeight = document.querySelector('header')?.clientHeight || 0;
+        const y = el.getBoundingClientRect().top + window.scrollY - headerHeight - 10; // kleiner Puffer
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
     } else {
-      this.router.navigate(['/main/mycontact']).then(() => {
+      this.router.navigate(['/main']).then(() => {
         setTimeout(() => {
-          const el = document.getElementById('mycontact-section');
-          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const el = document.getElementById('mycontact_topic');
+          if (el) {
+            const headerHeight = document.querySelector('header')?.clientHeight || 0;
+            const y = el.getBoundingClientRect().top + window.scrollY - headerHeight - 10;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
         }, 50);
       });
     }
   }
 
-
-  /**
-   * Navigates to the main page and scrolls to the top smoothly.
-   * If already on the main page, it only scrolls without navigation.
-   */
   goHome(): void {
     if (this.router.url.startsWith('/main') || this.router.url === '/') {
       window.scrollTo({ top: 0, behavior: 'smooth' });

@@ -1,18 +1,6 @@
 @use '../../styles/variables' as v;
 
-// -----------------------------
-// OVERLAY (100vw Bereich)
-// -----------------------------
-.overlay_div_2 {
-  position: absolute;
-  top: 0px;
-  left: 0;
-  width: calc(50vw + 730px);
-  height: 80vh;
-  z-index: 11;
-  background-color: v.$basecolor_background_color;
-  border-radius: 0% 0% 100% 0%;
-}
+
 
 // -----------------------------
 // MAIN BOX
@@ -33,22 +21,23 @@
   // -----------------------------
   // OVERLAY 1 (Vector / Background)
   // -----------------------------
-  .overlay_div_1 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 10;
+.overlay_div_1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 15; // 👈 höher als das Portrait (z-index: 2), aber niedriger als Text (z-index: 20)
+  pointer-events: none; // damit es keine Klicks blockiert
 
-    .overlay_img {
-      position: absolute;
-      top: 450px;
-      width: 100%;
-      height: 100%;
-      object-fit: fill;
-    }
+  .overlay_img {
+    position: absolute;
+    top: 450px;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
   }
+}
 
   @media (max-width: 1220px) {
     .overlay_div_1 .overlay_img {
