@@ -180,6 +180,7 @@
       padding: 0 0.5rem;
       position: relative;
       box-sizing: border-box;
+      
     }
 
     .mymain_box {
@@ -412,6 +413,8 @@
       top: 200px; 
     }
 
+
+    
     .portrait_overlay .mymain_box,
     .text_overlay .mymain_box {
       flex-direction: column;
@@ -462,6 +465,7 @@
         justify-content: center;
         width: 100%;
         gap: 0;
+        top:37px;
       }
 
       .intro_line {
