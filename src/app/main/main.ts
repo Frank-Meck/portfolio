@@ -65,24 +65,20 @@ export class Main implements AfterViewInit {
     this.currentSectionIndex = closestIndex;
     this.updateArrows();
 
-    console.log('Current visible section:', this.sections[closestIndex], 'Index:', closestIndex);
+
   }
 
   /** Scrollt zur nächsten Section */
   scrollToNextSection() {
     if (this.currentSectionIndex < this.scrollTargets.length - 1) {
       const nextId = this.scrollTargets[this.currentSectionIndex + 1];
-      console.log('Arrow Down clicked. Current index:', this.currentSectionIndex);
-      console.log('Scrolling to next ID:', nextId);
       this.scrollService.scrollToSection(nextId, 50);
     } else {
-      console.log('Arrow Down clicked, but already at last section.');
-    }
+     }
   }
 
   /** Scrollt nach oben zur ersten Section */
   scrollToPreviousSection() {
-    console.log('Arrow Up clicked. Scrolling to top.');
     this.scrollService.scrollToTop();
   }
 

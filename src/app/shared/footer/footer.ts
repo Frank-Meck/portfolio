@@ -19,35 +19,54 @@ export class Footer {
 
   showEmailModal = false;
 
+  /**
+   * Constructor for Footer component
+   * @param langService Service to handle language changes
+   * @param router Angular Router for navigation
+   */
   constructor(
     public langService: LanguageService,
     private router: Router
   ) {}
 
+
+  /**
+   * Opens the email modal
+   */
   openEmailModal(): void {
     this.showEmailModal = true;
   }
 
+
+  /**
+   * Closes the email modal
+   */
   closeEmailModal(): void {
     this.showEmailModal = false;
   }
 
-  /** 🔹 Neues: Modal öffnen und danach scrollen */
+
+  /**
+   * Opens the email modal and scrolls to the contact section
+   */
   openEmailModalAndScroll(): void {
     this.showEmailModal = true;
 
-    // Kurzes Delay, damit Modal gerendert wird, dann scrollen
     setTimeout(() => {
       this.scrollToMyContact();
     }, 50);
   }
 
+
+  /**
+   * Scrolls smoothly to the contact section with offset for header
+   */
   scrollToMyContact(): void {
     if (this.router.url.startsWith('/main')) {
-      const el = document.getElementById('mycontact_topic'); // id aus main.html
+      const el = document.getElementById('mycontact_topic'); 
       if (el) {
         const headerHeight = document.querySelector('header')?.clientHeight || 0;
-        const y = el.getBoundingClientRect().top + window.scrollY - headerHeight - 10; // kleiner Puffer
+        const y = el.getBoundingClientRect().top + window.scrollY - headerHeight - 10; 
         window.scrollTo({ top: y, behavior: 'smooth' });
       }
     } else {
@@ -64,6 +83,10 @@ export class Footer {
     }
   }
 
+
+  /**
+   * Scrolls smoothly to the top of the page, or navigates to /main first if not already there
+   */
   goHome(): void {
     if (this.router.url.startsWith('/main') || this.router.url === '/') {
       window.scrollTo({ top: 0, behavior: 'smooth' });

@@ -61,16 +61,15 @@
         <img src="assets/icons/github.png" alt="GitHub" />
       </a>
 
-      <!-- Mail Button: öffnet Modal und scrollt -->
+
       <button class="intro_mail_icon" 
               (click)="openEmailModalAndScroll()" 
               aria-label="Open Email Modal">
         <img src="assets/icons/mail.png" alt="E-Mail" />
       </button>
 
-      <!-- Optional: LinkedIn -->
-      <!--
-      <a href="https://linkedin.com" target="_blank">
+      <!-- Optional: LinkedIn
+        <a href="https://linkedin.com" target="_blank">
         <img src="assets/icons/linkedin.png" alt="LinkedIn" />
       </a>
       -->
@@ -87,7 +86,7 @@
   </div>
   <div class="footer_bottom"></div>
 
-  <!-- Modal -->
+
   <app-modal [show]="showEmailModal" 
              [title]="langService.t('footer.contactmail_topic')"
              [message]="langService.t('footer.contactmail_text')" 

@@ -2,323 +2,428 @@
 
 .mymain_main {
   width: 100vw;
-  display: flex;
-  justify-content: center;
- }
-
-.mymain_container {
+  height: 100vh;
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - #{v.$header_height});
-  width: 100%;
-  max-width: v.$max_width;
-  margin: 0;
+  align-items: center;
+  justify-content: flex-start;
 
-  .overlay_div_1 {
+
+  // ---------------------------------------------
+  // Overlay 1: vector.png
+  // ---------------------------------------------
+  img.overlay_img {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 15;
+    pointer-events: none;
+    top: clamp(370px, 370px + (100 * ((100vw - 1200px) / 240)), 470px);
+    object-fit: fill;
+    object-position: top;
+
+
+    @media (min-width: 200px) {
+      top: 100px;
+    }
+
+    @media (max-width: 499px) {
+      object-position: top right;
+    }
+
+
+    @media (max-width: 749px) {
+      object-position: top left;
+      object-fit: cover;
+    }
+
+    @media (min-width: 600px) {
+      top: 140px;
+    }
+
+
+    @media (min-width: 749px) {
+      top: 180px;
+    }
+
+    @media (min-width: 800px) {
+      top: 200px;
+    }
+
+    @media (min-width: 900px) {
+      top: 260px;
+    }
+
+    @media (min-width: 1000px) {
+      top: 300px;
+    }
+
+    @media (min-width: 1050px) {
+      top: 340px;
+    }
+
+    @media (min-width: 1120px) {
+      top: 400px;
+    }
+
+    @media (min-width: 1200px) {
+      top: 420px;
+    }
+
+    @media (min-width: 1300px) {
+      top: 450px;
+    }
+
+    @media (min-width: 1660px) {
+      top: 450px;
+    }
+
+    @media (min-width: 2560px) and (max-width: 3439px) {
+      top: 520px;
+    }
+
+    @media (min-width: 3440px) and (max-width: 3839px) {
+      top: 420px;
+    }
+
+    @media (min-width: 3840px) {
+      top: 540px;
+    }
+  }
+
+
+  .portrait_overlay {
+    width: 100%;
+    position: relative;
+    z-index: 10;
+
+    .mymain_container {
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - #{v.$header_height});
+      width: 100%;
+      max-width: v.$max_width;
+      margin: 0 auto;
+    }
+
+    .mymain_page {
+      width: 100%;
+      max-width: v.$max_width;
+      margin: 0 auto;
+      padding-top: 100px;
+      display: flex;
+      position: relative;
+      justify-content: center;
+    }
+
+    .mymain_box {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      position: relative;
+      overflow: visible;
+
+      .intro_left {
+        position: relative;
+        z-index: 10;
+
+        .background_img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 1;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+          }
+        }
+
+        img.portrait_img {
+          position: relative;
+          z-index: 10;
+          width: clamp(300px, 45vw, 646px);
+          height: auto;
+          max-height: 78vh;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+
+
+  .text_overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 10;
-    background: linear-gradient(
-      to bottom,
-      #1A2743 0%,
-      #1A2743 0%,
-      v.$basecolor_background_color 100%
-    );
-  }
+    z-index: 50;
+    pointer-events: none;
 
-
-}
-
-.mymain_page {
-  width: 100%;
-  max-width: v.$max_width;
-  margin: 0 auto;
-  padding-top: 100px;
-  display: flex;
-  position: relative;
-  z-index: 20;
-}
-
-.mymain_box {
-  width: 100%;
-  max-width: v.$max_width;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: visible;
-
-.intro_left {
-  position: relative;
-  z-index: 10; // 👈 so bleibt das Portrait unter dem Overlay
-
-
-    .background_img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        object-position: center;
-      }
-    }
-
-    img.portrait_img {
-      position: relative;
-      z-index: 2;
-      width: clamp(300px, 45vw, 646px);
-      height: auto;
-      max-height: 78vh;
-      object-fit: contain;
-    }
-  }
-
-  .intro_complet {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: clamp(300px, 50vw, 700px);
-    max-width: 100%;
-    z-index: 20;
-
-    .intro_complete_row {
+    .mymain_container {
+      pointer-events: auto;
       display: flex;
-      align-items: flex-start;
-      gap: 20px;
-      flex-wrap: nowrap;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      height: 100%;
       width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 0.5rem;
       position: relative;
+      box-sizing: border-box;
+    }
 
-      .intro_text_row {
-        @include v.text_heading_job;
-        font-weight: 400;
-        font-size: clamp(20px, 3vw, 48px);
-        white-space: nowrap;
-        margin: 0;
-        padding: 0;
-        display: inline-block;
-        transform: rotate(-90deg);
-        transform-origin: top right;
-        position: absolute;
-        right: 100%;
-        margin-right: 20px;
+    .mymain_box {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 100%;
+      max-width: v.$max_width;
+    }
 
-        &.en {
-          top: 24px;
-          right: 102%;
-        }
+    .intro_complet {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 5vw;
+      width: clamp(300px, 40vw, 600px);
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      pointer-events: auto;
 
-        &.de {
-          top: 14px;
-          right: 102%;
-        }
-      }
-
-      @media (max-width: 1400px) {
-        .intro_text_row {
-          &.de,
-          &.en {
-            top: 15px;
-            right: 102%;
-            margin-right: 10px;
-          }
-        }
-      }
-
-      @media (max-width: 1200px) {
-        .intro_text_row {
-          &.de,
-          &.en {
-            top: 12px;
-            right: 102%;
-            margin-right: 10px;
-          }
-        }
-      }
-
-      @media (max-width: 1000px) {
-        .intro_text_row {
-          &.de,
-          &.en {
-            top: 10px;
-            right: 102%;
-            margin-right: 5px;
-          }
-        }
-      }
-
-      @media (max-width: 750px) {
-        .intro_text_row {
-          &.de,
-          &.en {
-            top: 6px;
-            right: 102%;
-            margin-right: 0px;
-          }
-        }
-      }
-
-      .intro_name_job_container {
+      .intro_complete_row {
         display: flex;
-        flex-direction: column;
         align-items: flex-start;
-        flex: 1;
-        min-width: 0;
-        margin-left: 25px;
+        gap: 20px;
+        flex-wrap: nowrap;
+        width: 100%;
+        position: relative;
 
-        .intro_name_job {
+        .intro_text_row {
+          @include v.text_heading_job;
+          font-weight: 400;
+          font-size: clamp(20px, 3vw, 48px);
+          white-space: nowrap;
+          position: absolute;
+          right: 100%;
+          margin-right: 20px;
+          transform: rotate(-90deg);
+          transform-origin: top right;
+
+          &.en {
+            top: 24px;
+            right: 102%;
+          }
+
+          &.de {
+            top: 14px;
+            right: 102%;
+          }
+
+          @media (max-width: 1250px) {
+            &.en {
+              top: 20px;
+              right: 100%;
+            }
+
+            &.de {
+              top: 10px;
+              right: 100%;
+            }
+          }
+
+          @media (max-width: 1250px) {
+            &.en {
+              top: 18px;
+              right: 100%;
+            }
+
+            &.de {
+              top: 10px;
+              right: 100%;
+            }
+          }
+
+          @media (max-width: 950px) {
+            &.en {
+              top: 16px;
+              right: 98%;
+            }
+
+            &.de {
+              top: 10px;
+              right: 98%;
+            }
+          }
+
+
+          @media (max-width: 750px) {
+            &.en {
+              top: 12px;
+              right: 94%;
+            }
+
+            &.de {
+              top: 8px;
+              right: 94%;
+            }
+          }
+        }
+
+
+
+        .intro_name_job_container {
           display: flex;
           flex-direction: column;
-          justify-content: center;
           align-items: flex-start;
+          flex: 1;
+          min-width: 0;
+          margin-left: 25px;
 
-          .intro_name {
-            @include v.text_topic_heading;
-            white-space: nowrap;
-          }
+          .intro_name_job {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
 
-          .intro_job {
-            @include v.text_heading_job;
-            font-size: clamp(20px, 3vw, 48px);
-            color: v.$basecolor_purple;
-            display: inline-block;
-            white-space: nowrap;
-            text-align: left;
+            .intro_name {
+              @include v.text_topic_heading;
+              white-space: nowrap;
+            }
+
+            .intro_job {
+              @include v.text_heading_job;
+              font-size: clamp(20px, 3vw, 48px);
+              color: v.$basecolor_purple;
+              display: inline-block;
+              white-space: nowrap;
+              text-align: left;
+            }
           }
         }
       }
+
+      .intro_button {
+        @include v.button_style_green;
+        margin-top: 50px;
+        @include v.button_style_purple_hover;
+        width: 200px;
+        align-self: center;
+      }
     }
 
-    .intro_button {
-      @include v.button_style_green;
-      margin-top: 50px;
-      @include v.button_style_purple_hover;
-      width: 200px;
-      align-self: center;
-    }
-  }
-}
-
-.intro_contact {
-  z-index: 15;
-  position: relative;
-  width: 94%;
-  max-width: v.$max_width;
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  padding-top: 40px;
-  padding-bottom: 40px;
-
-  .box_line_links {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-
-    .intro_line {
+    .intro_contact {
       position: absolute;
-      left: calc(-50vw + 50%);
-      height: 2px;
-      width: calc(50vw - 10px);
-      background-color: v.$basecolor_purple;
-      z-index: 1;
-    }
-
-    .intro_links {
-      position: relative;
-      z-index: 2;
+      width: 94%;
+      max-width: v.$max_width;
       display: flex;
-      gap: 20px;
-      margin-left: clamp(75px, 15vw, 150px);
+      align-items: center;
+      gap: 32px;
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: auto;
 
-      a img {
-        width: 28px;
-        height: 28px;
-        object-fit: contain;
-        cursor: pointer;
+      .box_line_links {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 20px;
 
-        &:hover {
-          opacity: 0.8;
+
+        .intro_line {
+          position: absolute;
+          left: calc(-50vw + 50%);
+          height: 2px;
+          width: calc(50vw - 10px);
+          background-color: v.$basecolor_purple;
+          z-index: 1;
         }
+
+        .intro_links {
+          position: relative;
+          z-index: 2;
+          display: flex;
+          gap: 20px;
+          margin-left: clamp(75px, 15vw, 150px);
+
+          a img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+            cursor: pointer;
+
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+      }
+
+      .intro_mail {
+        @include v.text_project_skills;
+        color: white;
+        line-height: 120%;
       }
     }
   }
 
-  .intro_mail {
-    @include v.text_project_skills;
-    color: white;
-    line-height: 120%;
+
+  @media (max-width: 1440px) and (min-width: 751px) {
+    .text_overlay .mymain_container {
+      align-items: flex-end;
+    }
+
+    .text_overlay .intro_complet {
+      right: 5vw;
+      left: auto;
+      transform: translateY(-50%);
+      text-align: left;
+      align-items: flex-start;
+    }
   }
 
   @media (max-width: 750px) {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-
-    .box_line_links {
-      position: relative;
+    .text_overlay .mymain_container {
+      pointer-events: auto;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
+      height: 100%;
       width: 100%;
-      gap: 0;
-
-      .intro_line {
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        height: 2px;
-        background-color: v.$basecolor_purple;
-        width: calc(50% - 70px);
-      }
-
-      .intro_links {
-        position: relative;
-        z-index: 2;
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        margin: 0 auto;
-
-        a img {
-          width: 28px;
-          height: 28px;
-          object-fit: contain;
-          cursor: pointer;
-
-          &:hover {
-            opacity: 0.8;
-          }
-        }
-      }
-    }
-
-    .intro_mail {
-      display: none;
-    }
-  }
-}
-
-@media (max-width: 750px) {
-  .mymain_box {
-    flex-direction: column;
-    align-items: center;
-
-    .intro_complet {
-      width: clamp(300px, 60vw, 646px);
+      max-width: 1440px;
       margin: 0 auto;
+      padding: 0 0.5rem;
+      position: relative;
+      box-sizing: border-box;
+      top: 200px; 
+    }
+
+    .portrait_overlay .mymain_box,
+    .text_overlay .mymain_box {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .text_overlay .intro_complet {
+      position: relative;
+      top: auto;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
       align-items: center;
 
       .intro_complete_row {
@@ -330,7 +435,6 @@
 
         .intro_text_row {
           transform: rotate(-90deg);
-          position: absolute;
           top: 10px;
           right: 100%;
           margin-right: 20px;
@@ -338,11 +442,6 @@
 
         .intro_name_job_container {
           align-items: flex-start;
-
-          .intro_job {
-            padding-left: 0 !important;
-            padding-right: 0 !important;
-          }
         }
       }
 
@@ -351,38 +450,41 @@
         align-self: center;
       }
     }
-  }
-}
 
-@media (max-width: 370px) {
-  .mymain_box {
-    .intro_complet {
-      .intro_complete_row {
-        position: relative;
+    .text_overlay .intro_contact {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
 
-        .intro_text_row {
-          font-size: clamp(20px, 4.5vw, 20px);
-          position: absolute;
-          top: 4px;
-          right: 100%;
-          margin-right: 0px;
-          transform: rotate(-90deg);
-          transform-origin: top right;
-        }
 
-        .intro_name_job_container {
-          margin-left: 25px;
-
-          .intro_name {
-            font-size: clamp(16px, 4vw, 22px);
-          }
-
-          .intro_job {
-            font-size: clamp(14px, 3.5vw, 18px);
-            text-align: left;
-          }
-        }
+      .box_line_links {
+        justify-content: center;
+        width: 100%;
+        gap: 0;
       }
+
+      .intro_line {
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: calc(50% - 70px);
+      }
+
+      .intro_mail {
+        display: none;
+      }
+    }
+  }
+
+  @media (max-width: 650px) {
+    .text_overlay .intro_complet {
+      margin-top: 25px;
+    }
+
+    .text_overlay .intro_contact {
+      margin-top: 15px;
+      justify-content: center;
     }
   }
 }
