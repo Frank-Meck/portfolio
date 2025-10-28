@@ -49,13 +49,15 @@ export class Myskills {
    * @description Scrolls smoothly to the "My Contact" section using ScrollService.
    * Works from any route: navigates to /main if needed, then scrolls.
    */
-  scrollToMyContact() {
-    const scrollAction = () => this.scrollService.scrollToSection('mycontact_topic', -100);
+scrollToMyContact() {
+  const scrollAction = () => this.scrollService.scrollToSection('mycontact_topic', -100);
 
-    if (this.router.url.startsWith('/main')) {
-      scrollAction();
-    } else {
-      this.router.navigate(['/main']).then(() => setTimeout(() => scrollAction(), 50));
-    }
+  // Wenn du bereits auf der Startseite bist:
+  if (this.router.url === '/' || this.router.url.startsWith('/?')) {
+    scrollAction();
+  } else {
+    // Sonst zur Startseite navigieren und dann scrollen
+    this.router.navigate(['/']).then(() => setTimeout(() => scrollAction(), 50));
   }
+}
 }
