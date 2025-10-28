@@ -42,16 +42,16 @@ export class Header {
 
   /** Navigiert nach oben zur Startseite bzw. mymain */
   goHome() {
-    const scrollTop = () => this.scrollService.scrollToTop();
+  const scrollTop = () => this.scrollService.scrollToTop();
 
-    if (this.router.url.startsWith('/main')) {
-      scrollTop();
-    } else {
-      this.router.navigate(['/main']).then(() => setTimeout(() => scrollTop(), 50));
-    }
-
-    this.closeMenu();
+  if (this.router.url === '/' || this.router.url.startsWith('/?')) {
+    scrollTop();
+  } else {
+    this.router.navigate(['/']).then(() => setTimeout(() => scrollTop(), 50));
   }
+
+  this.closeMenu();
+}
 
   /**
    * Scrollt zu einer Section über den ScrollService

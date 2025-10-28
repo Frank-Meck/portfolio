@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../services/language.service';
-import { Modal } from '../components/modal/modal'; 
+import { Modal } from '../components/modal/modal';
 
 @Component({
   selector: 'app-footer',
@@ -27,7 +27,7 @@ export class Footer {
   constructor(
     public langService: LanguageService,
     private router: Router
-  ) {}
+  ) { }
 
 
   /**
@@ -63,10 +63,10 @@ export class Footer {
    */
   scrollToMyContact(): void {
     if (this.router.url.startsWith('/main')) {
-      const el = document.getElementById('mycontact_topic'); 
+      const el = document.getElementById('mycontact_topic');
       if (el) {
         const headerHeight = document.querySelector('header')?.clientHeight || 0;
-        const y = el.getBoundingClientRect().top + window.scrollY - headerHeight - 10; 
+        const y = el.getBoundingClientRect().top + window.scrollY - headerHeight - 10;
         window.scrollTo({ top: y, behavior: 'smooth' });
       }
     } else {
@@ -88,10 +88,10 @@ export class Footer {
    * Scrolls smoothly to the top of the page, or navigates to /main first if not already there
    */
   goHome(): void {
-    if (this.router.url.startsWith('/main') || this.router.url === '/') {
+    if (this.router.url === '/' || this.router.url.startsWith('/?')) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      this.router.navigate(['/main']).then(() => {
+      this.router.navigate(['/']).then(() => {
         setTimeout(() => {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }, 50);
