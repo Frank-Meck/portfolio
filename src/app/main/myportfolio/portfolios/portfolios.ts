@@ -51,9 +51,9 @@ export class PortfoliosComponent implements OnInit, AfterViewInit {
    * @description Static mapping for project images, live URLs, and GitHub URLs.
    */
   projectLinks: any = {
-    'Join': { imageUrl: 'assets/img/join.webp', liveUrl: '', githubUrl: '' },
+    'Join': { imageUrl: 'assets/img/join.webp', liveUrl: 'https://www.join.frank-meckel.de', githubUrl: 'https://github.com/Frank-Meck/Join-Portfolio.git' },
     'El Pollo Loco': { imageUrl: 'assets/img/elpolloloco.webp', liveUrl: 'http://elpolloloco.frank-meckel.de/index.html', githubUrl: 'https://github.com/Frank-Meck/El-Pollo-Loco.git' },
-    'Simple CRM': { imageUrl: 'assets/img/SimpleCRM.webp', liveUrl: 'https://www.join.frank-meckel.de/login', githubUrl: 'https://github.com/Frank-Meck/Join-Portfolio.git' },
+    'Simple CRM': { imageUrl: 'assets/img/SimpleCRM.webp', liveUrl: '', githubUrl: '' },
     'Pokédex': { imageUrl: 'assets/img/pokedex.webp', liveUrl: 'http://pokedex.frank-meckel.de/index.html', githubUrl: 'https://github.com/Frank-Meck/Pokedex.git' }
   };
 
