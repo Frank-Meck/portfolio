@@ -161,7 +161,7 @@ export class LanguageService {
             EN: 'Working with Frank on our joint project was a real pleasure. His quick grasp of concepts and clear communication skills contributed significantly to a positive and productive group dynamic. I would particularly like to emphasize how naturally he includes all team members and is always open to discussion.',
             DE: 'Die Zusammenarbeit mit Frank in unserem gemeinsamen Projekt hat mir wirklich viel Freude bereitet. Durch seine gute Auffassungsgabe und klare Kommunikation hat er maßgeblich zu einer positiven und produktiven Gruppendynamik beigetragen. Besonders hervorheben möchte ich, wie selbstverständlich er alle Teammitglieder einbezieht und stets offen für den Austausch ist.'
           },
-          team_picture: 'assets/img/myIMG-2.webp'
+          team_picture: ''
         },
         {
           title: { EN: 'Team partners', DE: 'Team Partner' },
