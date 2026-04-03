@@ -155,31 +155,31 @@ export class LanguageService {
       TeamFeedBacks: [
         {
           title: { EN: 'Team partners', DE: 'Team Partner' },
-          team_member: 'Michael Beispiel',
+          team_member: 'Calvin Hanisch',
           team_gender: { male: true },
           team_comment: {
-            EN: 'This is a sample text; the team feedback can only be added after the group work. Michael really kept the team together with his great organization and clear communication. Everything went smoothly.',
-            DE: 'Dies ist ein Beispieltext; das Teamfeedback kann erst nach der Gruppenarbeit eingefügt werden. Michael hat das Team wirklich zusammengehalten mit seiner großartigen Organisation und klaren Kommunikation. Alles lief reibungslos.'
+            EN: 'Working with Frank on our joint project was a real pleasure. His quick grasp of concepts and clear communication skills contributed significantly to a positive and productive group dynamic. I would particularly like to emphasize how naturally he includes all team members and is always open to discussion.',
+            DE: 'Die Zusammenarbeit mit Frank in unserem gemeinsamen Projekt hat mir wirklich viel Freude bereitet. Durch seine gute Auffassungsgabe und klare Kommunikation hat er maßgeblich zu einer positiven und produktiven Gruppendynamik beigetragen. Besonders hervorheben möchte ich, wie selbstverständlich er alle Teammitglieder einbezieht und stets offen für den Austausch ist.'
           },
           team_picture: 'assets/img/myIMG-2.webp'
         },
         {
           title: { EN: 'Team partners', DE: 'Team Partner' },
-          team_member: 'Frau Musterfrau',
+          team_member: 'Patricia Linne',
           team_gender: { male: false },
           team_comment: {
-            EN: 'This is a placeholder for the team feedback from Ms. Musterfrau. Feedback can only be added after the group work. She helped the team stay organized and contributed to clear communication among all members.',
-            DE: 'Hier ist ein Platzhalter für das Teamfeedback von Frau Musterfrau. Feedback kann erst nach der Gruppenarbeit eingefügt werden. Sie hat das Team organisiert unterstützt und für klare Kommunikation unter allen Mitgliedern gesorgt.'
+            EN: 'He worked reliably and was always helpful. He maintained good relationships with all team members and included everyone.',
+            DE: 'Er arbeitet zuverlässig und ist stets hilfsbereit. Er pflegte einen guten Umgang mit allen Teammitgliedern und bezog alle mit ein.',
           },
           team_picture: ''
         },
         {
           title: { EN: 'Team partners', DE: 'Team Partner' },
-          team_member: 'Mister Mustermann',
+          team_member: 'Amer Alkhalidy',
           team_gender: { male: true },
           team_comment: {
-            EN: 'This is a placeholder for the team feedback from Mr. Mustermann. Feedback can only be added after the group work. He ensured that the team stayed focused and maintained effective collaboration throughout the project.',
-            DE: 'Hier ist ein Platzhalter für das Teamfeedback von Herrn Mustermann. Feedback kann erst nach der Gruppenarbeit eingefügt werden. Er sorgte dafür, dass das Team fokussiert blieb und die Zusammenarbeit während des Projekts effektiv verlief.'
+            EN: 'Working together as a team was a great pleasure. He exudes a great deal of experience and ambition.',
+            DE: 'Die Zusammenarbeit im Team hat großen Spaß gemacht und er vermittelt viel Erfahrung und Ehrgeiz .'
           },
           team_picture: ''
         }
