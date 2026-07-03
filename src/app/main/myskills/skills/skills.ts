@@ -40,6 +40,12 @@ export class Skills {
     { name: 'REST-API', img: 'assets/icons/skills/rest-api.png' },
     { name: 'Scrum', img: 'assets/icons/skills/scrum.png' },
     { name: 'Material Design', img: 'assets/icons/skills/materialdesign.png' },
+
+    { name: 'Python', img: 'assets/icons/skills/Python.png' },
+    { name: 'Django', img: 'assets/icons/skills/Django.png' },
+    { name: 'DRF', img: 'assets/icons/skills/DRF.png' },
+    { name: 'Linux', img: 'assets/icons/skills/Linux.png' },
+
     { name: 'Continually Learning', img: 'assets/icons/skills/continually-learning.svg' }
   ];
 
@@ -60,7 +66,7 @@ export class Skills {
     const longestWord = this.skills
       .map(skill => skill.name.split(' ')) // split into words
       .flat()
-      .reduce((max, word) => 
+      .reduce((max, word) =>
         word.length > max.length ? word : max, '');
 
     this.maxWidth = `${longestWord.length * 10 + 20}px`;

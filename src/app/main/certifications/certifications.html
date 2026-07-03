@@ -1,0 +1,70 @@
+<div id="mycertifications" class="certificates_main">
+    <!-- Purple Background -->
+    <div class="purple_shadow_left_wrapper">
+        <img src="assets/icons/Purple_shadow_L1.png" alt="Purple Shadow" />
+    </div>
+
+    <!-- Headline -->
+    <div class="certificates_box">
+        <div class="column_1"></div>
+        <div class="right_line"></div>
+        <div class="certificates_title">
+            {{ langService.t('mycertifications.header') }}
+        </div>
+        <div class="left_line"></div>
+    </div>
+
+    <!-- Certificates -->
+    <div class="certificates_section">
+        <div class="certificates_content">
+            <!-- Frontend -->
+            <div class="certificate_card">
+                <div class="certificate_info">
+                    <div class="certificate_title_row">
+                        <img src="assets/icons/certificate.png" alt="Certificate" class="certificate_icon" />
+                        <div class="certificate_topictext">
+                            {{ langService.t('mycertifications.frontend_title') }}
+                        </div>
+                    </div>
+                    <div class="certificate_subtext">
+                        <p>
+                            {{ langService.t('mycertifications.frontend_text') }}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="certificate_actions">
+                    <a href="assets/certificates/frontend-certificate.pdf" target="_blank" class="certificate_button">
+                        {{ langService.t('mycertifications.certificate_button') }}
+                    </a>
+                    <a href="assets/certificates/frontend-transcript.pdf" target="_blank"
+                        class="certificate_button secondary">
+                        {{ langService.t('mycertifications.transcript_button') }}
+                    </a>
+                </div>
+            </div>
+            <!-- Backend -->
+            <div class="certificate_card">
+                <div class="certificate_info">
+                    <div class="certificate_title_row">
+                        <img src="assets/icons/certificate.png" alt="Certificate" class="certificate_icon" />
+                        <div class="certificate_topictext">
+                            {{ langService.t('mycertifications.backend_title') }}
+                        </div>
+                    </div>
+                    <div class="certificate_subtext">
+                        <p>
+                            {{ langService.t('mycertifications.backend_text') }}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="certificate_actions">
+                    <button class="certificate_button disabled" disabled>
+                        {{ langService.t('mycertifications.in_progress') }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

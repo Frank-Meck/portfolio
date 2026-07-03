@@ -7,13 +7,14 @@ import { ScrollService } from '../shared/services/scroll';
 import { Mymain } from './mymain/mymain';
 import { Myaboutme } from './myaboutme/myaboutme';
 import { Myskills } from './myskills/myskills';
+import { Certifications } from './certifications/certifications';
 import { Myportfolio } from './myportfolio/myportfolio';
 import { Mycontact } from './mycontact/mycontact';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [CommonModule, RouterModule, Mymain, Myaboutme, Myskills, Myportfolio, Mycontact],
+  imports: [CommonModule, RouterModule, Mymain, Myaboutme, Myskills, Certifications, Myportfolio, Mycontact],
   templateUrl: './main.html',
   styleUrls: ['./main.scss']
 })

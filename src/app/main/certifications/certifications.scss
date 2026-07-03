@@ -1,0 +1,175 @@
+@use '../../../styles/variables' as v;
+
+.certificates_main {
+    padding-top: 50px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: v.$basecolor_background_color;
+    overflow: hidden;
+
+    .purple_shadow_left_wrapper {
+        position: absolute;
+        top: 150px;
+        left: 0;
+        z-index: 0;
+        pointer-events: none;
+
+        img {
+            width: auto;
+            height: 100%;
+            display: block;
+        }
+    }
+
+
+    .certificates_box {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        position: relative;
+        z-index: 1;
+
+        .column_1 {
+            flex: 1;
+        }
+
+        .right_line,
+        .left_line {
+            height: 4px;
+            background-color: v.$basecolor_purple;
+            flex: 1;
+        }
+
+        .certificates_title {
+            font-family: Poppins, sans-serif;
+            font-weight: 700;
+            font-size: clamp(32px, 5vw, 32px);
+            line-height: 120%;
+            color: v.$basecolor_text;
+            white-space: nowrap;
+            margin: 8px 25px;
+            padding-top: 5px;
+        }
+    }
+
+    .certificates_section {
+        width: calc(100% - 100px);
+        max-width: v.$max_width;
+        position: relative;
+        z-index: 1;
+
+        .certificates_content {
+            padding: 20px;
+            padding-top: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .certificate_card {
+            border:
+                1px solid v.$baseborder_color;
+            border-radius: 24px;
+            padding: 32px;
+            background:
+                rgba(255, 255, 255, 0.02);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 32px;
+            transition: .3s ease;
+
+            &:hover {
+                transform: translateY(-5px);
+            }
+
+            @media(max-width:768px) {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        .certificate_title_row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            .certificate_icon {
+                width: 45px;
+                height: 45px;
+                object-fit: contain;
+            }
+        }
+
+        .certificate_info {
+            .certificate_topictext {
+                @include v.text_content;
+                font-weight: 600;
+                color: v.$basecolor_text;
+            }
+
+            .certificate_subtext {
+                margin-top: 10px;
+                @include v.text_skills;
+                color: v.$basecolor_text;
+            }
+        }
+
+        .certificate_actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .certificate_button {
+            @include v.button_style_send;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:hover {
+                @include v.button_style_green_hover;
+            }
+        }
+
+        .secondary {
+            background: transparent;
+            border:
+                1px solid v.$baseborder_color;
+            color: v.$basecolor_text;
+        }
+
+        .disabled {
+            opacity: .5;
+            cursor: not-allowed;
+        }
+    }
+
+
+    @media(max-width:900px) {
+        .certificates_box {
+            flex-direction: column;
+
+            .column_1,
+            .right_line,
+            .left_line {
+                display: none;
+            }
+
+            .certificates_title {
+                padding-top: 0;
+                margin: 0;
+            }
+        }
+
+        .certificates_section {
+            width: calc(100% - 40px);
+        }
+    }
+}

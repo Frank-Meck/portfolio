@@ -54,7 +54,8 @@ export class PortfoliosComponent implements OnInit, AfterViewInit {
     'Join': { imageUrl: 'assets/img/join.webp', liveUrl: 'https://www.join.frank-meckel.de', githubUrl: 'https://github.com/Frank-Meck/Join-Portfolio.git' },
     'El Pollo Loco': { imageUrl: 'assets/img/elpolloloco.webp', liveUrl: 'http://elpolloloco.frank-meckel.de/index.html', githubUrl: 'https://github.com/Frank-Meck/El-Pollo-Loco.git' },
     'Simple CRM': { imageUrl: 'assets/img/SimpleCRM.webp', liveUrl: '', githubUrl: '' },
-    'Pokédex': { imageUrl: 'assets/img/pokedex.webp', liveUrl: 'http://pokedex.frank-meckel.de/index.html', githubUrl: 'https://github.com/Frank-Meck/Pokedex.git' }
+    'Pokédex': { imageUrl: 'assets/img/pokedex.webp', liveUrl: 'http://pokedex.frank-meckel.de/index.html', githubUrl: 'https://github.com/Frank-Meck/Pokedex.git' },
+    'Kanmind': { imageUrl: 'assets/img/Kanmind.png', liveUrl: 'https://kanmind.frank-meckel.de', githubUrl: 'https://github.com/Frank-Meck/Backend_Kanmind.git' }
   };
 
   /**

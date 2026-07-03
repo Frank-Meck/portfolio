@@ -52,7 +52,7 @@ export class LanguageService {
     //mymain//
     mymain: {
       Iam: { EN: 'I am', DE: 'Ich bin' },
-      job: { EN: 'FRONTEND DEVELOPER', DE: 'FRONTEND ENTWICKLER' },
+      job: { EN: 'Full-Stack Developer', DE: 'Full-Stack Entwickler' },
       button: { EN: "Let's talk", DE: 'Lass uns reden' }
     },
 
@@ -90,18 +90,62 @@ export class LanguageService {
     myskills: {
       Myskills: { EN: 'My skills', DE: 'Meine Fähigkeiten' },
       MySkillsRow2: {
-        EN: `In my portfolio projects, I have applied a wide range of front-end skills—including HTML, CSS,
-             JavaScript, TypeScript, Angular, Firebase, Git, REST APIs, Scrum, Material Design, and a commitment
-             to continually learning—both independently and in team settings to create responsive and interactive web applications.`,
-        DE: `In meinen Portfolio-Projekten habe ich eine Vielzahl von Front-End-Fähigkeiten angewendet, darunter HTML, CSS,
-             JavaScript, TypeScript, Angular, Firebase, Git, REST APIs, Scrum, Material Design und das Engagement,
-             kontinuierlich zu lernen – sowohl eigenständig als auch im Team, um responsive und interaktive Webanwendungen zu erstellen.`
+        EN: `In my portfolio projects, I have applied a wide range of full-stack development skills—including HTML, CSS,
+            JavaScript, TypeScript, Angular, Firebase, Git, REST APIs, Scrum, Material Design, Python, Django, Django REST Framework (DRF), Linux,
+            and a commitment to continually learning—both independently and in team settings to create responsive and interactive web applications.`,
+
+        DE: `In meinen Portfolio-Projekten habe ich eine Vielzahl von Full-Stack-Entwicklungsfähigkeiten angewendet, darunter HTML, CSS,
+            JavaScript, TypeScript, Angular, Firebase, Git, REST APIs, Scrum, Material Design, Python, Django, Django REST Framework (DRF), Linux
+            sowie das Engagement, kontinuierlich zu lernen – sowohl eigenständig als auch im Team, um responsive und interaktive Webanwendungen zu erstellen.`
       },
       MySkillsRow4: {
         EN: `I am passionate about continuously learning new technologies and frameworks. That’s why I attended a training program at the Developer 
              Academy to implement modern, efficient solutions effectively.`,
         DE: `Meine Leidenschaft liegt darin, kontinuierlich neue Technologien und Frameworks zu lernen. 
              Deshalb habe ich an einer Weiterbildung bei der Developer Akademie teilgenommen, um moderne, effiziente Lösungen gezielt umzusetzen.`
+      }
+    },
+
+    //mycertifications//
+    mycertifications: {
+      header: {
+        EN: 'Certificates',
+        DE: 'Zertifikate'
+      },
+
+      frontend_title: {
+        EN: 'Frontend Development',
+        DE: 'Frontend Entwicklung'
+      },
+
+      frontend_text: {
+        EN: 'Successfully completed Frontend Development training.',
+        DE: 'Erfolgreich abgeschlossene Weiterbildung im Bereich Frontend Development.'
+      },
+
+      certificate_button: {
+        EN: 'Certificate',
+        DE: 'Zertifikat'
+      },
+
+      transcript_button: {
+        EN: 'Transcript',
+        DE: 'Nachweis'
+      },
+
+      backend_title: {
+        EN: 'Backend Development',
+        DE: 'Backend Entwicklung'
+      },
+
+      backend_text: {
+        EN: 'Currently in progress.',
+        DE: 'Derzeit in Bearbeitung.'
+      },
+
+      in_progress: {
+        EN: 'In Progress',
+        DE: 'In Bearbeitung'
       }
     },
 
@@ -148,7 +192,19 @@ export class LanguageService {
             EN: 'Based on the PokéAPI a simple library that provides and catalogues pokemon information.',
             DE: 'Basierend auf der PokéAPI eine einfache Bibliothek, die Informationen über Pokémon bereitstellt und katalogisiert.'
           },
-
+        },
+        {
+          title: 'Kanmind',
+          skills: { EN: 'Python | DRF | Django | Linux', DE: 'Python | DRF | Django | Linux' },
+          description: {
+            EN: `A task management app built with Django REST Framework. The backend was implemented based on a provided API specification;
+                the frontend was provided by the Developer Akademie.
+                The application is deployed on a self-hosted Raspberry Pi server, demonstrating practical experience in backend development,
+                API integration, deployment, and basic DevOps skills.`,
+            DE: `Eine Aufgabenverwaltungs-App mit Django REST Framework. Das Backend wurde auf Basis einer vorgegebenen API-Spezifikation umgesetzt;
+              das Frontend wurde von der Developer Akademie bereitgestellt.
+              Die Anwendung ist auf einem selbst gehosteten Raspberry Pi Server deployed und zeigt praktische Erfahrung in Backend-Entwicklung,
+              API-Integration, Deployment sowie grundlegenden DevOps-Kenntnissen.`         },
         }
       ],
       // Teamfeedback separat als eigene Variable
