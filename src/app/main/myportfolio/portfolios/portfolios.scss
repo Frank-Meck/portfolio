@@ -28,11 +28,21 @@
     margin-top: 75px;
 
 
+
     .txt_project {
       @include v.text_project;
       margin-top: 30px;
     }
 
+    .title_area {
+      color: #b8b8b8;
+      margin-left: 12px;
+      font-size: 0.85em;
+      letter-spacing: 0.5px;
+      font-style: italic;
+      font-weight: 400;
+      /* oder normal */
+    }
 
     .txt_project_skills {
       @include v.text_project_skills;

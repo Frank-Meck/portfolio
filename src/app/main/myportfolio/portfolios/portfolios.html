@@ -1,20 +1,15 @@
 <div class="portfolio_item" [ngClass]="{'reverse': reverseLayout}">
 
   <div class="portfolio_image">
-   <img 
-      [src]="imageUrl" 
-      [alt]="project.title"
-      [attr.data-aos]="reverseLayout ? 'fade-left' : 'fade-right'"
-      data-aos-duration="1000"
-      data-aos-easing="ease-out-cubic"
-      data-aos-offset="150"
-      data-aos-once="false"
-      data-aos-anchor-placement="top-bottom"
-    />
+    <img [src]="imageUrl" [alt]="project.title" [attr.data-aos]="reverseLayout ? 'fade-left' : 'fade-right'"
+      data-aos-duration="1000" data-aos-easing="ease-out-cubic" data-aos-offset="150" data-aos-once="false"
+      data-aos-anchor-placement="top-bottom" />
   </div>
 
   <div class="portfolio_text">
-    <h3 class="txt_project">{{ project.title }}</h3>
+    <h3 class="txt_project">
+      {{ project.title }} <span class="title_area">{{ project.area }}</span>
+    </h3>
     <p class="txt_project_skills">{{ project.skills[langService.currentLang] }}</p>
     <p class="txt_project_discription">{{ project.description[langService.currentLang] }}</p>
 

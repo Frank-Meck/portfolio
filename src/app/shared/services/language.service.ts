@@ -160,6 +160,7 @@ export class LanguageService {
       Projects: [
         {
           title: 'Join',
+          area: '(Frontend Development)',
           skills: {
             EN: 'Angular | TypeScript | HTML | CSS | Firebase ',
             DE: 'Angular | TypeScript | HTML | CSS | Firebase .'
@@ -171,6 +172,7 @@ export class LanguageService {
         },
         {
           title: 'El Pollo Loco',
+          area: '(Frontend Development)',
           skills: { EN: 'JavaScript | HTML | CSS', DE: 'JavaScript | HTML | CSS' },
           description: {
             EN: 'An exciting action game where a Mexican hero collects coins and bottles, avoids obstacles, and fights the final boss to defeat him.',
@@ -179,6 +181,7 @@ export class LanguageService {
         },
         {
           title: 'Simple CRM',
+          area: '(Frontend Development)',
           skills: { EN: 'Angular | Firebase', DE: 'Angular | Firebase' },
           description: {
             EN: 'A very Simple Customer Relationship Management system working with CRUD functionality',
@@ -187,6 +190,7 @@ export class LanguageService {
         },
         {
           title: 'Pokédex',
+          area: '(Frontend Development)',
           skills: { EN: 'JavaScript | HTML | CSS | Api', DE: 'JavaScript | HTML | CSS | Api' },
           description: {
             EN: 'Based on the PokéAPI a simple library that provides and catalogues pokemon information.',
@@ -195,6 +199,7 @@ export class LanguageService {
         },
         {
           title: 'Kanmind',
+          area: '(Backend Development)',
           skills: { EN: 'Python | DRF | Django | Linux', DE: 'Python | DRF | Django | Linux' },
           description: {
             EN: `A task management app built with Django REST Framework. The backend was implemented based on a provided API specification;
@@ -205,7 +210,23 @@ export class LanguageService {
               das Frontend wurde von der Developer Akademie bereitgestellt.
               Die Anwendung ist auf einem selbst gehosteten Raspberry Pi Server deployed und zeigt praktische Erfahrung in Backend-Entwicklung,
               API-Integration, Deployment sowie grundlegenden DevOps-Kenntnissen.`         },
+        },
+        {
+          title: 'Coderr',
+          area: '(Backend Development)',
+          skills: { EN: 'Python | DRF | Django | Linux', DE: 'Python | DRF | Django | Linux' },
+          description: {
+            EN: `The program provides a platform where users can register, log in, and manage their profiles. Business users can create, edit, 
+                and manage offers, while customers can browse offers, place orders, and submit reviews. The API provides all necessary functions 
+                for authentication, user management, offers, orders, reviews, and platform statistics through various endpoints.`,
+            DE: `Das Programm bietet eine Plattform, auf der sich Nutzer registrieren, anmelden und ihre Profile verwalten können. Geschäftskunden können 
+                Angebote erstellen, bearbeiten und verwalten, während Kunden Angebote durchstöbern, Bestellungen aufgeben und Bewertungen abgeben können.
+                Die API stellt über verschiedene Endpunkte alle erforderlichen Funktionen für Authentifizierung, Benutzerverwaltung, Angebote, Bestellungen, Bewertungen und Plattformstatistiken bereit.`         },
         }
+
+
+
+
       ],
       // Teamfeedback separat als eigene Variable
       TeamFeedBacks: [
