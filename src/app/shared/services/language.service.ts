@@ -392,6 +392,17 @@ export class LanguageService {
      <span class="highlighted_text">GmbH</span>. Unbefugte Nutzung, Vervielfältigung, Veränderung oder Verbreitung ist strengstens verboten.`
       },
 
+      AIToolsTitle: {
+        EN: 'Use of AI-generated content',
+        DE: 'Verwendung von KI-generierten Inhalten'
+      },
+
+      AITools: {
+        EN: `Some of the illustrations and graphics used were created with the assistance of AI and serve exclusively to visualize the project.`,
+        DE: `Einige der verwendeten Illustrationen und Grafiken wurden mit Unterstützung von KI erstellt und dienen ausschließlich der Visualisierung des Projekts.`
+      },
+
+
 
       ProprietaryRightsTitle: { EN: 'Proprietary rights', DE: 'Eigentumsrechte' },
       ProprietaryRights: {
